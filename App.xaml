@@ -1,0 +1,52 @@
+﻿<Application x:Class="CompetitionApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CompetitionApp"
+             xmlns:viewExpert="clr-namespace:CompetitionApp.View.Expert"
+             xmlns:viewModelExpert="clr-namespace:CompetitionApp.ViewModel.Expert"
+             xmlns:viewOrg="clr-namespace:CompetitionApp.View.Org"
+             xmlns:viewModelOrg="clr-namespace:CompetitionApp.ViewModel.Org"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/GlobalStyles.xaml"/>
+                <ResourceDictionary Source="Styles/Fonts.xaml"/>
+                <ResourceDictionary Source="Styles/MenuStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--ГЛАВНЫЙ ЭКСПЕРТ-->
+            <DataTemplate DataType="{x:Type viewModelExpert:ExpertUsersViewModel}">
+                <viewExpert:ExpertUsersView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModelExpert:ExpertExpertsViewModel}">
+                <viewExpert:ExpertExpertsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModelExpert:ExpertProtocolsViewModel}">
+                <viewExpert:ExpertProtocolsView/>
+            </DataTemplate>
+
+            <!--ОРГАНИЗАТОР-->
+            <DataTemplate DataType="{x:Type viewModelOrg:OrgUserViewModel}">
+                <viewOrg:OrgUsersView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModelOrg:OrgExpertViewModel}">
+                <viewOrg:OrgExpertView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModelOrg:OrgSettingsViewModel}">
+                <viewOrg:OrgSettingsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModelOrg:OrgReportViewModel}">
+                <viewOrg:OrgReportView/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+        
+    </Application.Resources>
+</Application>

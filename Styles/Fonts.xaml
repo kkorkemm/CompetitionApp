@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <FontFamily x:Key="AkrobatRegular">pack://application;,,,/Fonts/#Akrobat Regular</FontFamily>
+    <FontFamily x:Key="AkrobatBlack">pack://application;,,,/Fonts/#Akrobat Black</FontFamily>
+    <FontFamily x:Key="AkrobatBold">pack://application;,,,/Fonts/#Akrobat Bold</FontFamily>
+    <FontFamily x:Key="AkrobatExtraBold">pack://application;,,,/Fonts/#Akrobat ExtraBold</FontFamily>
+    <FontFamily x:Key="AkrobatExtraLight">pack://application;,,,/Fonts/#Akrobat ExtraLight</FontFamily>
+    <FontFamily x:Key="AkrobatLight">pack://application;,,,/Fonts/#Akrobat Light</FontFamily>
+    <FontFamily x:Key="AkrobatSemibold">pack://application;,,,/Fonts/#Akrobat Semibold</FontFamily>
+    <FontFamily x:Key="AkrobatThin">pack://application;,,,/Fonts/#Akrobat Thin</FontFamily>
+
+    <Style x:Key="BaseStyle" TargetType="{x:Type Control}">
+        <Setter Property="FontFamily" Value="{StaticResource AkrobatRegular}"/>
+    </Style>
+
+    <Style x:Key="BaseTextStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="{StaticResource AkrobatRegular}"/>
+    </Style>
+
+    <Style TargetType="Control" BasedOn="{StaticResource BaseStyle}"/>
+    <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextStyle}"/>
+
+    <system:Double x:Key="FontSizeSmall">14</system:Double>
+    <system:Double x:Key="FontSizeAverage">18</system:Double>
+    <system:Double x:Key="FontSizeRegular">20</system:Double>
+    <system:Double x:Key="FontSizeLarge">30</system:Double>
+
+</ResourceDictionary>

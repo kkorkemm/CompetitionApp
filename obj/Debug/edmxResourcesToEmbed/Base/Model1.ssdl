@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище CompetitionDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Competition">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompetitionName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="BeginDate" Type="date" Nullable="false" />
+    <Property Name="DaysCount" Type="tinyint" Nullable="false" />
+    <Property Name="Logo" Type="varbinary(max)" />
+    <Property Name="CanExpertScore" Type="bit" Nullable="false" />
+    <Property Name="CanAssistScore" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Day">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompetitionID" Type="int" Nullable="false" />
+    <Property Name="DayName" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="AccessCode" Type="nchar" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="Expert">
+    <Key>
+      <PropertyRef Name="ExpertID" />
+    </Key>
+    <Property Name="ExpertID" Type="int" Nullable="false" />
+    <Property Name="CompetitorID" Type="int" />
+  </EntityType>
+  <EntityType Name="ExpertAndRole">
+    <Key>
+      <PropertyRef Name="ExpertID" />
+      <PropertyRef Name="ExpertRoleID" />
+    </Key>
+    <Property Name="ExpertID" Type="int" Nullable="false" />
+    <Property Name="ExpertRoleID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExpertRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompetiotionID" Type="int" Nullable="false" />
+    <Property Name="ExpertRoleName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="MinExpertCount" Type="tinyint" />
+    <Property Name="MaxExpertCount" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenderName" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProtocolAndUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProtocolID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="Signed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Protocols">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProtocolName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="UserRoleID" Type="smallint" Nullable="false" />
+    <Property Name="DayID" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Finished" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegionName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Capital" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RegionDistrictID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RegionDistrict">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegionDistrictName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="SkillName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompetiotionID" Type="int" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="70" />
+    <Property Name="Password" Type="nchar" MaxLength="8" Nullable="false" />
+    <Property Name="PIN" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="GenderID" Type="tinyint" Nullable="false" />
+    <Property Name="BirthDate" Type="date" Nullable="false" />
+    <Property Name="UserRoleID" Type="smallint" Nullable="false" />
+    <Property Name="SkillID" Type="varchar" MaxLength="5" />
+    <Property Name="RegionID" Type="int" />
+    <Property Name="UserStatusID" Type="smallint" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="11" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleSysName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusSysName" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="StatusName" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Day_Competition">
+    <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+    <End Role="Day" Type="Self.Day" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Day">
+        <PropertyRef Name="CompetitionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Expert_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Expert" Type="Self.Expert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Expert">
+        <PropertyRef Name="CompetitorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Expert_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Expert" Type="Self.Expert" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Expert">
+        <PropertyRef Name="ExpertID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExpertAndRole_Expert">
+    <End Role="Expert" Type="Self.Expert" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ExpertAndRole" Type="Self.ExpertAndRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Expert">
+        <PropertyRef Name="ExpertID" />
+      </Principal>
+      <Dependent Role="ExpertAndRole">
+        <PropertyRef Name="ExpertID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExpertAndRole_ExpertRole">
+    <End Role="ExpertRole" Type="Self.ExpertRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ExpertAndRole" Type="Self.ExpertAndRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExpertRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ExpertAndRole">
+        <PropertyRef Name="ExpertRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExpertRole_Competition">
+    <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+    <End Role="ExpertRole" Type="Self.ExpertRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ExpertRole">
+        <PropertyRef Name="CompetiotionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProtocolAndUser_Protocols">
+    <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+    <End Role="ProtocolAndUser" Type="Self.ProtocolAndUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Protocols">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProtocolAndUser">
+        <PropertyRef Name="ProtocolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProtocolAndUser_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ProtocolAndUser" Type="Self.ProtocolAndUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProtocolAndUser">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Protocols_Day">
+    <End Role="Day" Type="Self.Day" Multiplicity="1" />
+    <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Day">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Protocols">
+        <PropertyRef Name="DayID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Protocols_UserRole">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Protocols">
+        <PropertyRef Name="UserRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Region_RegionDistrict">
+    <End Role="RegionDistrict" Type="Self.RegionDistrict" Multiplicity="1" />
+    <End Role="Region" Type="Self.Region" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegionDistrict">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Region">
+        <PropertyRef Name="RegionDistrictID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Competition">
+    <End Role="Competition" Type="Self.Competition" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competition">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CompetiotionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Region">
+    <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RegionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Skill">
+    <End Role="Skill" Type="Self.Skill" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skill">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="SkillID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserRole">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserStatus">
+    <End Role="UserStatus" Type="Self.UserStatus" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище CompetitionDBModelContainer">
+    <EntitySet Name="Competition" EntityType="Self.Competition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Day" EntityType="Self.Day" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Expert" EntityType="Self.Expert" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExpertAndRole" EntityType="Self.ExpertAndRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExpertRole" EntityType="Self.ExpertRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProtocolAndUser" EntityType="Self.ProtocolAndUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Protocols" EntityType="Self.Protocols" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegionDistrict" EntityType="Self.RegionDistrict" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserStatus" EntityType="Self.UserStatus" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Day_Competition" Association="Self.FK_Day_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="Day" EntitySet="Day" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Expert_User" Association="Self.FK_Expert_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Expert" EntitySet="Expert" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Expert_User1" Association="Self.FK_Expert_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Expert" EntitySet="Expert" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExpertAndRole_Expert" Association="Self.FK_ExpertAndRole_Expert">
+      <End Role="Expert" EntitySet="Expert" />
+      <End Role="ExpertAndRole" EntitySet="ExpertAndRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExpertAndRole_ExpertRole" Association="Self.FK_ExpertAndRole_ExpertRole">
+      <End Role="ExpertRole" EntitySet="ExpertRole" />
+      <End Role="ExpertAndRole" EntitySet="ExpertAndRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExpertRole_Competition" Association="Self.FK_ExpertRole_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="ExpertRole" EntitySet="ExpertRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProtocolAndUser_Protocols" Association="Self.FK_ProtocolAndUser_Protocols">
+      <End Role="Protocols" EntitySet="Protocols" />
+      <End Role="ProtocolAndUser" EntitySet="ProtocolAndUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProtocolAndUser_User" Association="Self.FK_ProtocolAndUser_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ProtocolAndUser" EntitySet="ProtocolAndUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Protocols_Day" Association="Self.FK_Protocols_Day">
+      <End Role="Day" EntitySet="Day" />
+      <End Role="Protocols" EntitySet="Protocols" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Protocols_UserRole" Association="Self.FK_Protocols_UserRole">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="Protocols" EntitySet="Protocols" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Region_RegionDistrict" Association="Self.FK_Region_RegionDistrict">
+      <End Role="RegionDistrict" EntitySet="RegionDistrict" />
+      <End Role="Region" EntitySet="Region" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Competition" Association="Self.FK_User_Competition">
+      <End Role="Competition" EntitySet="Competition" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Gender" Association="Self.FK_User_Gender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Region" Association="Self.FK_User_Region">
+      <End Role="Region" EntitySet="Region" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Skill" Association="Self.FK_User_Skill">
+      <End Role="Skill" EntitySet="Skill" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserRole" Association="Self.FK_User_UserRole">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserStatus" Association="Self.FK_User_UserStatus">
+      <End Role="UserStatus" EntitySet="UserStatus" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
