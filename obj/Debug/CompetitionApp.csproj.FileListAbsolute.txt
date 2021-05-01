@@ -1,8 +1,6 @@
 C:\C#\CompetitionApp\CompetitionApp\bin\Debug\CompetitionApp.exe.config
 C:\C#\CompetitionApp\CompetitionApp\bin\Debug\CompetitionApp.exe
 C:\C#\CompetitionApp\CompetitionApp\bin\Debug\CompetitionApp.pdb
-C:\C#\CompetitionApp\CompetitionApp\bin\Debug\EntityFramework.dll
-C:\C#\CompetitionApp\CompetitionApp\bin\Debug\EntityFramework.SqlServer.dll
 C:\C#\CompetitionApp\CompetitionApp\bin\Debug\EntityFramework.xml
 C:\C#\CompetitionApp\CompetitionApp\bin\Debug\EntityFramework.SqlServer.xml
 C:\C#\CompetitionApp\CompetitionApp\bin\Debug\ru\EntityFramework.resources.dll
@@ -44,3 +42,4 @@ C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgExpertView.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgReportView.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgSettingsView.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgUsersView.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\CompetitionApp.csprojAssemblyReference.cache

@@ -16,7 +16,7 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0.25*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
@@ -30,10 +30,32 @@
         <StackPanel Grid.Row="1"  
                     Background="#FF17479E">
 
-            <StackPanel Height="50">
-                <TextBlock x:Name="TextHello"/>
-                <TextBlock x:Name="TextDay"/>
-            </StackPanel>
+            <Grid Height="100" 
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch"
+                        Margin="10">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock x:Name="TextHello"
+                           FontSize="14"
+                           Foreground="White"
+                           FontWeight="SemiBold"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"/>
+                <TextBlock x:Name="TextDay"
+                           FontSize="14"
+                           Foreground="White"
+                           FontWeight="SemiBold"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"
+                           Grid.Row="1"/>
+            </Grid>
 
             <StackPanel>
                 <RadioButton Content="Список участников"

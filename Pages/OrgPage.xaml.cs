@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 
 namespace CompetitionApp.Pages
 {
+    using Base;
+
     /// <summary>
     /// Логика взаимодействия для OrgPage.xaml
     /// </summary>
@@ -23,6 +25,11 @@ namespace CompetitionApp.Pages
         public OrgPage()
         {
             InitializeComponent();
+
+            TextHello.Text = Helper.WhatTimeOfDay();
+            TextHello.Text += "\n"+ CompetitionDBEntities.currentUser.FullName;
+
+            TextDay.Text = $"День {Helper.WhatDay()}";
         }
     }
 }

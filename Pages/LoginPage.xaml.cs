@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace CompetitionApp.Pages
 {
@@ -45,46 +36,52 @@ namespace CompetitionApp.Pages
             }
             else
             {
-                /// TODO: пользователи текущего чемпионата
-                var userName = CompetitionDBEntities.GetContext().User.Where(p => p.Surname == TextLogin.Text).ToList();
+                var userName = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID).ToList();
 
                 if (userName.Count > 0)
                 {
                     foreach(var user in userName)
                     {
-                        if (user.Password == TextPass.Password)
+                        if (user.Surname == TextLogin.Text)
                         {
-                            CompetitionDBEntities.currentUser = user;
-
-                            /// TODO: Запомнить меня
-                            if (CheckRemember.IsChecked == true)
+                            if (user.Password == TextPass.Password)
                             {
+                                CompetitionDBEntities.currentUser = user;
 
+                                /// TODO: Запомнить меня
+                                if (CheckRemember.IsChecked == true)
+                                {
+
+                                }
+
+                                if (user.UserRoleID == 3)
+                                {
+                                    Navigation.MainFrame.Navigate(new ExpertPage());
+                                }
+
+                                if (user.UserRoleID == 6)
+                                {
+                                    Navigation.MainFrame.Navigate(new OrgPage());
+                                }
                             }
 
-                            if (user.UserRoleID == 3)
+                            else
                             {
-                                Navigation.MainFrame.Navigate(new ExpertPage());
+                                MessageBox.Show("Неверный пароль!");
+                                return;
                             }
+                        }                
+                    }
 
-                            if (user.UserRoleID == 6)
-                            {
-                                Navigation.MainFrame.Navigate(new OrgPage());
-                            }
-
-                        }
-
-                        else
-                        {
-                            MessageBox.Show("Неверный пароль!");
-                            return;
-                        }
+                    if (CompetitionDBEntities.currentUser == null)
+                    {
+                        MessageBox.Show($"Вы не были зарегистрированы на чемпионат {CompetitionDBEntities.currentCompettion.CompetitionName}");
                     }
                 }
 
                 else
                 {
-                    MessageBox.Show("Такого пользователя в базе нет");
+                    MessageBox.Show($"Пользователей, зарегистрированных на чемпионат {CompetitionDBEntities.currentCompettion.CompetitionName} нет");
                 }
             }
         }

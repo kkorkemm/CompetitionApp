@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helper.cs" />
     <Compile Include="Pages\OrgPage.xaml.cs">
       <DependentUpon>OrgPage.xaml</DependentUpon>
     </Compile>
