@@ -8,9 +8,7 @@
         <Setter Property="FontWeight" Value="Regular"/>
     </Style>
 
-    <Style TargetType="Button">
-        <Setter Property="Background" Value="#FF17479E"/>
-        <Setter Property="Foreground" Value="White"/>
+    <Style TargetType="Button" x:Key="BaseButton">
         <Setter Property="FontWeight" Value="SemiBold"/>
 
         <Setter Property="Template">
@@ -26,13 +24,42 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <!--Blue Button-->
+    <Style TargetType="Button" x:Key="BtnBlue" BasedOn="{StaticResource BaseButton}">
+        <Setter Property="Background" Value="#FF17479E"/>
+        <Setter Property="Foreground" Value="White"/>
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#FF132D75"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
 
+    <!--Red Button-->
+    <Style TargetType="Button" x:Key="BtnRed" BasedOn="{StaticResource BaseButton}">
+        <Setter Property="Background" Value="#ed1c29"/>
+        <Setter Property="Foreground" Value="White"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#d51824"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--Yellow Button-->
+    <Style TargetType="Button" x:Key="BtnYellow" BasedOn="{StaticResource BaseButton}">
+        <Setter Property="Background" Value="#f99d1c"/>
+        <Setter Property="Foreground" Value="White"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#fcb017"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <!--Headers-->

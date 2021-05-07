@@ -6,12 +6,32 @@ namespace CompetitionApp
 {
     using Pages;
     using Base;
-    
+
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        void AddDay(string dayName)
+        {
+            try
+            {
+                Day newDay = new Day
+                {
+                    CompetitionID = CompetitionDBEntities.currentCompettion.ID,
+                    DayName = dayName,
+                    AccessCode = Helper.GetRandomCode("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890", 7)
+                };
+
+                CompetitionDBEntities.GetContext().Day.Add(newDay);
+                CompetitionDBEntities.GetContext().SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public MainWindow()
         {
 
@@ -47,57 +67,15 @@ namespace CompetitionApp
 
                     for (int i = 0; i < prevDays.Days; i++)
                     {
-                        try
-                        {
-                            Day newDay = new Day
-                            {
-                                CompetitionID = CompetitionDBEntities.currentCompettion.ID,
-                                DayName = $"C-{i + 1}"
-                            };
-
-                            CompetitionDBEntities.GetContext().Day.Add(newDay);
-                            CompetitionDBEntities.GetContext().SaveChanges();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
+                        AddDay($"C-{i+1}");
                     }
 
                     for (int i = 0; i < CompetitionDBEntities.currentCompettion.DaysCount; i++)
                     {
-                        try
-                        {
-                            Day newDay = new Day
-                            {
-                                CompetitionID = CompetitionDBEntities.currentCompettion.ID,
-                                DayName = $"C{i + 1}"
-                            };
-
-                            CompetitionDBEntities.GetContext().Day.Add(newDay);
-                            CompetitionDBEntities.GetContext().SaveChanges();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
+                        AddDay($"C{i + 1}");
                     }
 
-                    try
-                    {
-                        Day newDay = new Day
-                        {
-                            CompetitionID = CompetitionDBEntities.currentCompettion.ID,
-                            DayName = "C+1"
-                        };
-
-                        CompetitionDBEntities.GetContext().Day.Add(newDay);
-                        CompetitionDBEntities.GetContext().SaveChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+                    AddDay("C+1");
                 }
 
                 mainFrame.Navigate(new LoginPage());

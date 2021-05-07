@@ -22,6 +22,7 @@
 
         public static User currentUser;
         public static Competition currentCompettion;
+        public static Day currentDay;
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

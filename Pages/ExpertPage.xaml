@@ -12,6 +12,16 @@
     <Page.DataContext>
         <viewModel:MainVM/>
     </Page.DataContext>
+
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="#FF1D2D75"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
     
     <Grid>
 
@@ -21,36 +31,66 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.15*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Логотип"/>
+        <Grid Grid.ColumnSpan="2"
+              Background="#FF17479E">
+            
+        </Grid>
 
-        <StackPanel Grid.Row="1"  
-                    Background="#FF17479E">
+        <Image x:Name="Logo"/>
 
-            <StackPanel Height="80"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
-                <TextBlock x:Name="TextHello"
-                           FontSize="14"
+        <Grid Grid.Column="1"
+              VerticalAlignment="Center">
+            <StackPanel Margin="15 0 0 0"
+                        HorizontalAlignment="Left">
+                <TextBlock x:Name="TextCompName" 
+                           FontSize="18"
+                           FontWeight="Bold"
                            Foreground="White"
-                           FontWeight="SemiBold"
-                           TextWrapping="Wrap"
-                           TextAlignment="Center"/>
-                <TextBlock x:Name="TextDay"
+                           Margin="0 0 0 5"
+                           HorizontalAlignment="Left"/>
+                <TextBlock x:Name="TextSkillName" 
+                           Text="Компетенция: "
                            FontSize="14"
-                           Foreground="White"
-                           FontWeight="SemiBold"
-                           TextWrapping="Wrap"
-                           TextAlignment="Center"/>
+                           Foreground="White"/>
             </StackPanel>
 
-            <StackPanel>
+            <Button x:Name="BtnExit"
+                    Content="Выход"
+                    Click="BtnExit_Click"
+                    HorizontalAlignment="Right"
+                    Width="150"
+                    Height="30"
+                    Style="{StaticResource BtnRed}"
+                    Margin="0 0 15 0"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1"  
+                    Background="#FFD1D3D4">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Margin="0 20 0 20">
+                <TextBlock x:Name="TextHello"
+                           Margin="0 0 0 5"
+                           FontWeight="SemiBold"/>
+                <TextBlock x:Name="TextDay"
+                           FontWeight="SemiBold"
+                           Grid.Row="1"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
                 <RadioButton Content="Список участников"
                              FontSize="14"
-                             Foreground="White"
+                             Foreground="#FF1D2D75"
                              Height="60"
                              Style="{StaticResource MenuButton}"
                              IsChecked="True"
@@ -58,20 +98,31 @@
                 
                 <RadioButton Content="Список экспертов"
                              FontSize="14"
-                             Foreground="White"
+                             Foreground="#FF1D2D75"
                              Height="60"
                              Style="{StaticResource MenuButton}"
                              Command="{Binding ExpertExpertCommand}"/>
                 
                 <RadioButton Content="Протоколы"
                              FontSize="14"
-                             Foreground="White"
+                             Foreground="#FF1D2D75"
                              Height="60"
                              Style="{StaticResource MenuButton}"
                              Command="{Binding ExpertProtocolCommand}"/>
             </StackPanel>
-            
-        </StackPanel>
+
+            <StackPanel Grid.Row="2"
+                        Margin="0 20 0 20">
+                <TextBlock Text="Ваш код доступа на сегодня: "
+                           Margin="5"
+                           FontWeight="SemiBold"/>
+                <TextBox x:Name="TextCode"
+                         TextAlignment="Center"
+                         IsReadOnly="True"
+                         Margin="5 0 5 0"/>
+            </StackPanel>
+
+        </Grid>
 
         <ContentControl Grid.Row="1"
                         Grid.Column="1"

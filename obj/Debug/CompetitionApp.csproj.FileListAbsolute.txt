@@ -1,9 +1,6 @@
 C:\C#\CompetitionApp\CompetitionApp\bin\Debug\CompetitionApp.exe.config
 C:\C#\CompetitionApp\CompetitionApp\bin\Debug\CompetitionApp.exe
 C:\C#\CompetitionApp\CompetitionApp\bin\Debug\CompetitionApp.pdb
-C:\C#\CompetitionApp\CompetitionApp\bin\Debug\EntityFramework.xml
-C:\C#\CompetitionApp\CompetitionApp\bin\Debug\EntityFramework.SqlServer.xml
-C:\C#\CompetitionApp\CompetitionApp\bin\Debug\ru\EntityFramework.resources.dll
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\MainWindow.g.cs
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\LoginPage.g.cs
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\App.g.cs

@@ -21,14 +21,41 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.15*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Логотип"/>
+        <Grid Grid.ColumnSpan="2"
+              Background="#FF17479E">
+            
+        </Grid>
 
+        <Image x:Name="Logo"/>
+
+        <Grid Grid.Column="1"
+              VerticalAlignment="Center">
+            <StackPanel Margin="15 0 0 0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center">
+                <TextBlock x:Name="TextCompName" 
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+            </StackPanel>
+
+            <Button x:Name="BtnExit"
+                    Content="Выход"
+                    Click="BtnExit_Click"
+                    HorizontalAlignment="Right"
+                    Width="150"
+                    Height="30"
+                    Style="{StaticResource BtnRed}"
+                    Margin="0 0 15 0"/>
+
+        </Grid>
+        
         <StackPanel Grid.Row="1"  
-                    Background="#FF17479E">
+                    Background="#FFD1D3D4">
 
             <Grid Height="100" 
                         VerticalAlignment="Stretch"
@@ -42,14 +69,14 @@
                 
                 <TextBlock x:Name="TextHello"
                            FontSize="14"
-                           Foreground="White"
+                           Foreground="#FF1D2D75"
                            FontWeight="SemiBold"
                            TextWrapping="Wrap"
                            TextAlignment="Center"
                            VerticalAlignment="Center"/>
                 <TextBlock x:Name="TextDay"
                            FontSize="14"
-                           Foreground="White"
+                           Foreground="#FF1D2D75"
                            FontWeight="SemiBold"
                            TextWrapping="Wrap"
                            TextAlignment="Center"
@@ -60,7 +87,7 @@
             <StackPanel>
                 <RadioButton Content="Список участников"
                              FontSize="14"
-                             Foreground="White"
+                             Foreground="#FF1D2D75"
                              Height="60"
                              Style="{StaticResource MenuButton}"
                              IsChecked="True"
@@ -68,21 +95,21 @@
 
                 <RadioButton Content="Настройка чемпионата"
                              FontSize="14"
-                             Foreground="White"
+                             Foreground="#FF1D2D75"
                              Height="60"
                              Style="{StaticResource MenuButton}"
                              Command="{Binding OrgSettingCommand}"/>
 
                 <RadioButton Content="Список главных экспертов"
                              FontSize="14"
-                             Foreground="White"
+                             Foreground="#FF1D2D75"
                              Height="60"
                              Style="{StaticResource MenuButton}"
                              Command="{Binding OrgExpertCommand}"/>
 
                 <RadioButton Content="Отчет по сданным протоколам"
                              FontSize="14"
-                             Foreground="White"
+                             Foreground="#FF1D2D75"
                              Height="60"
                              Style="{StaticResource MenuButton}"
                              Command="{Binding OrgReportCommand}"/>

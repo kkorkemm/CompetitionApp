@@ -1,10 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace CompetitionApp.Pages
 {
     using Base;
+    using System.Windows;
 
     /// <summary>
     /// Логика взаимодействия для ExpertPage.xaml
@@ -17,8 +16,25 @@ namespace CompetitionApp.Pages
 
             TextHello.Text = Helper.WhatTimeOfDay();
             TextHello.Text += "\n" + CompetitionDBEntities.currentUser.FullName;
-
             TextDay.Text = $"День {Helper.WhatDay()}";
+            TextCompName.Text = CompetitionDBEntities.currentCompettion.CompetitionName;
+            TextSkillName.Text += CompetitionDBEntities.currentUser.Skill.SkillName;
+            TextCode.Text = CompetitionDBEntities.currentDay.AccessCode;
+        }
+
+        /// <summary>
+        /// Выход из системы (разлогониться)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnExit_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            MessageBoxResult question = MessageBox.Show("Вы точно хотите выйти из системы?", "Внимание!", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (question == MessageBoxResult.Yes)
+            {
+                Navigation.MainFrame.Navigate(new LoginPage());
+            }
         }
     }
 }

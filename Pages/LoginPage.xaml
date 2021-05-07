@@ -46,7 +46,9 @@
 
             <Button x:Name="BtnLogin"
                     Content="Логин"
-                    Click="BtnLogin_Click"/>
+                    Click="BtnLogin_Click"
+                    IsDefault="True"
+                    Style="{StaticResource BtnBlue}"/>
 
         </StackPanel>
         

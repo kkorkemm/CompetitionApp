@@ -54,7 +54,23 @@ namespace CompetitionApp
                 }
             }
 
+            CompetitionDBEntities.currentDay = CompetitionDBEntities.GetContext().Day.Where(p => p.DayName == day).FirstOrDefault();
+
             return day;
+        }
+
+
+        public static string GetRandomCode(string alphabet, int length)
+        {
+            Random random = new Random();
+            StringBuilder code = new StringBuilder();
+            for (int i = 0; i < length; i++) 
+            {
+                int position = random.Next(0, alphabet.Length - 1);
+                code.Append(alphabet[position]);
+            }
+
+            return code.ToString();
         }
 
     }
