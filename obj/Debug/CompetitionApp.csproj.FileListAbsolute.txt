@@ -48,3 +48,5 @@ C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertAddExpertP
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertExpertsPage.g.cs
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertAddExpertPage.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertExpertsPage.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgUsersPage.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgUsersPage.baml

@@ -7,8 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="Список участников"
-                   FontSize="25"
-                   VerticalAlignment="Center"/>
+        <Frame x:Name="OrgUsersFrame"
+               NavigationUIVisibility="Hidden"/>
     </Grid>
 </UserControl>

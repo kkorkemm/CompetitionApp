@@ -79,6 +79,9 @@
     <Compile Include="Pages\OrgPage.xaml.cs">
       <DependentUpon>OrgPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OrgPages\OrgUsersPage.xaml.cs">
+      <DependentUpon>OrgUsersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\Expert\ExpertExpertsViewModel.cs" />
     <Compile Include="ViewModel\Expert\ExpertProtocolsViewModel.cs" />
     <Compile Include="ViewModel\Expert\ExpertUsersViewModel.cs" />
@@ -202,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\OrgPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OrgPages\OrgUsersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

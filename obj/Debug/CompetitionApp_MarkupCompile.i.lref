@@ -2,4 +2,8 @@
 
 FC:\C#\CompetitionApp\CompetitionApp\Pages\ExpertPages\ExpertAddExpertPage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\ExpertPages\ExpertExpertsPage.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPage.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgUsersPage.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\View\Expert\ExpertExpertsView.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\View\Org\OrgUsersView.xaml;;
 

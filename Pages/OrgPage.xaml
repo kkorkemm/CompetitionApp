@@ -54,26 +54,34 @@
 
         </Grid>
         
-        <StackPanel Grid.Row="1"  
-                    Background="#FFD1D3D4">
+        <Grid Grid.Row="1" 
+              Background="#FFD1D3D4">
 
-            <Grid Height="100" 
-                        VerticalAlignment="Stretch"
-                        HorizontalAlignment="Stretch"
-                        Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>            
+            
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="0 20 0 20">
 
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                
+                <TextBlock Text="ТЕХНИЧЕСКАЯ ДИРЕКЦИЯ"
+                           FontSize="14"
+                           Foreground="#FF1D2D75"
+                           FontWeight="SemiBold"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="0 0 0 5"/>
                 <TextBlock x:Name="TextHello"
                            FontSize="14"
                            Foreground="#FF1D2D75"
                            FontWeight="SemiBold"
                            TextWrapping="Wrap"
                            TextAlignment="Center"
-                           VerticalAlignment="Center"/>
+                           VerticalAlignment="Center"
+                           Margin="0 0 0 5"/>
                 <TextBlock x:Name="TextDay"
                            FontSize="14"
                            Foreground="#FF1D2D75"
@@ -82,9 +90,9 @@
                            TextAlignment="Center"
                            VerticalAlignment="Center"
                            Grid.Row="1"/>
-            </Grid>
+            </StackPanel>
 
-            <StackPanel>
+            <StackPanel Grid.Row="1">
                 <RadioButton Content="Список участников"
                              FontSize="14"
                              Foreground="#FF1D2D75"
@@ -115,7 +123,7 @@
                              Command="{Binding OrgReportCommand}"/>
             </StackPanel>
 
-        </StackPanel>
+        </Grid>
 
         <ContentControl Grid.Row="1"
                         Grid.Column="1"

@@ -34,6 +34,8 @@ namespace CompetitionApp.Base
         }
         public string Status => UserStatus.ID != 1 ? UserStatus.StatusName + "-ожидает подтверждения" : UserStatus.StatusName;
 
+        public bool UserConfirm => UserStatusID != 1 ? true : false;
+
         public int ID { get; set; }
         public int CompetiotionID { get; set; }
         public string Surname { get; set; }
