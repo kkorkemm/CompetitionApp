@@ -12,7 +12,7 @@ namespace CompetitionApp.Base
             this.ProtocolAndUser = new HashSet<ProtocolAndUser>();
         }
 
-        public string FullName => Surname + " " + Name + " " + LastName;
+        public string FullName => Surname + " " + Name[0] + ". " + LastName[0] + ".";
         public int FullAge => DateTime.Now.Year - BirthDate.Year;
         public string FullAgeString
         {
@@ -32,7 +32,7 @@ namespace CompetitionApp.Base
                 }
             }
         }
-        public string Status => UserStatus.StatusSysName != "Confirmed" ? UserStatus.StatusName + "-ожидает подтверждения" : UserStatus.StatusName;
+        public string Status => UserStatus.ID != 1 ? UserStatus.StatusName + "-ожидает подтверждения" : UserStatus.StatusName;
 
         public int ID { get; set; }
         public int CompetiotionID { get; set; }

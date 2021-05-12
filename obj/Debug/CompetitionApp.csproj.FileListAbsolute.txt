@@ -39,4 +39,12 @@ C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgExpertView.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgReportView.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgSettingsView.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgUsersView.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertAddUsersPage.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertUsersPage.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertAddUsersPage.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertUsersPage.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\CompetitionApp.csprojAssemblyReference.cache
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertAddExpertPage.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertExpertsPage.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertAddExpertPage.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertExpertsPage.baml

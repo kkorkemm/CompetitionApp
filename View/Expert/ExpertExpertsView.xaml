@@ -7,8 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="Список экспертов"
-                   FontSize="24"
-                   VerticalAlignment="Center"/>
+        <Frame x:Name="ExpertExpertFrame"
+               NavigationUIVisibility="Hidden"/>
     </Grid>
 </UserControl>

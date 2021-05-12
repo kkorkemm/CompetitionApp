@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace CompetitionApp.ViewModel.Expert
 {
-    class ExpertUsersViewModel
+    using MVVMCore;
+
+    class ExpertUsersViewModel : INotify
     {
+
     }
 }

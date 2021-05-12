@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 
 namespace CompetitionApp.View.Expert
 {
+    using Pages.ExpertPages;
+
     /// <summary>
     /// Логика взаимодействия для ExpertExpertsView.xaml
     /// </summary>
@@ -23,6 +25,8 @@ namespace CompetitionApp.View.Expert
         public ExpertExpertsView()
         {
             InitializeComponent();
+            ExpertExpertFrame.Navigate(new ExpertExpertsPage());
+            Navigation.SubFrame = ExpertExpertFrame;
         }
     }
 }

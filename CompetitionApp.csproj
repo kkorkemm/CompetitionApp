@@ -64,6 +64,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helper.cs" />
+    <Compile Include="Pages\ExpertPages\ExpertAddExpertPage.xaml.cs">
+      <DependentUpon>ExpertAddExpertPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExpertPages\ExpertAddUsersPage.xaml.cs">
+      <DependentUpon>ExpertAddUsersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExpertPages\ExpertExpertsPage.xaml.cs">
+      <DependentUpon>ExpertExpertsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExpertPages\ExpertUsersPage.xaml.cs">
+      <DependentUpon>ExpertUsersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\OrgPage.xaml.cs">
       <DependentUpon>OrgPage.xaml</DependentUpon>
     </Compile>
@@ -166,6 +178,22 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\ExpertPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ExpertPages\ExpertAddExpertPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ExpertPages\ExpertAddUsersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ExpertPages\ExpertExpertsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ExpertPages\ExpertUsersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -39,7 +39,7 @@ namespace CompetitionApp
 
             if (compDay.BeginDate > DateTime.Now)
             {
-                day = $"C-{(compDay.BeginDate - DateTime.Now).Days}";
+                day = $"C-{(compDay.BeginDate.AddDays(2) - DateTime.Now).Days}";
             }
 
             if (compDay.BeginDate <= DateTime.Now)

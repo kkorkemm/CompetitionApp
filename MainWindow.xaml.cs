@@ -43,7 +43,7 @@ namespace CompetitionApp
 
             foreach(var date in orderedDates)
             {
-                if (currentDate < date.BeginDate)
+                if (currentDate <= date.BeginDate.AddDays(date.DaysCount + 1))
                 {
                     currentDate = date.BeginDate;
                     break;
@@ -63,7 +63,7 @@ namespace CompetitionApp
 
                 if (CompetitionDBEntities.currentCompettion.Day.Count == 0)
                 {
-                    TimeSpan prevDays = CompetitionDBEntities.currentCompettion.BeginDate - DateTime.Now;
+                    TimeSpan prevDays = CompetitionDBEntities.currentCompettion.BeginDate.AddDays(2) - DateTime.Now;
 
                     for (int i = 0; i < prevDays.Days; i++)
                     {

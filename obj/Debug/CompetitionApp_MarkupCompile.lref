@@ -2,6 +2,8 @@
 FC:\C#\CompetitionApp\CompetitionApp\App.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\MainWindow.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\ExpertPage.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\Pages\ExpertPages\ExpertAddUsersPage.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\Pages\ExpertPages\ExpertUsersPage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\LoginPage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\View\Expert\ExpertExpertsView.xaml;;
@@ -11,4 +13,6 @@ FC:\C#\CompetitionApp\CompetitionApp\View\Org\OrgExpertView.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\View\Org\OrgReportView.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\View\Org\OrgSettingsView.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\View\Org\OrgUsersView.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\Pages\ExpertPages\ExpertAddExpertPage.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\Pages\ExpertPages\ExpertExpertsPage.xaml;;
 
