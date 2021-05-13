@@ -77,7 +77,8 @@ namespace CompetitionApp.Pages.ExpertPages
                         CompetitorID = competitor.ID
                     };
 
-                    CompetitionDBEntities.GetContext().Expert.Add(expert);
+                    if (expert.ExpertID == 0)
+                        CompetitionDBEntities.GetContext().Expert.Add(expert);
                 }
 
                 try

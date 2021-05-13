@@ -6,6 +6,8 @@
              xmlns:viewModelExpert="clr-namespace:CompetitionApp.ViewModel.Expert"
              xmlns:viewOrg="clr-namespace:CompetitionApp.View.Org"
              xmlns:viewModelOrg="clr-namespace:CompetitionApp.ViewModel.Org"
+             xmlns:viewOrgSettings="clr-namespace:CompetitionApp.View.Org.OrgSettings"
+             xmlns:viewModelOrgSettings="clr-namespace:CompetitionApp.ViewModel.Org.OrgSettings"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
@@ -45,6 +47,18 @@
             <DataTemplate DataType="{x:Type viewModelOrg:OrgReportViewModel}">
                 <viewOrg:OrgReportView/>
             </DataTemplate>
+            
+            <!--НАСТРОЙКИ ОРГАНИЗАТОРА-->
+            <DataTemplate DataType="{x:Type viewModelOrgSettings:OrgMainSettingsViewModel}">
+                <viewOrgSettings:OrgSettingsMainView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModelOrgSettings:OrgSettingsProtocolsViewModel}">
+                <viewOrgSettings:OrgSettingsProtocolsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModelOrgSettings:OrgSettingsExpertRolesViewModel}">
+                <viewOrgSettings:OrgSettingsExpertRolesView/>
+            </DataTemplate>
+
 
         </ResourceDictionary>
         

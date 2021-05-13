@@ -60,7 +60,7 @@ namespace CompetitionApp.ViewModel
             });
 
             ExpertExpertCommand = new Command(o =>
-            {
+            { 
                 CurrentView = ExpertExpertVM;
             });
 

@@ -79,6 +79,9 @@
     <Compile Include="Pages\OrgPage.xaml.cs">
       <DependentUpon>OrgPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OrgPages\OrgMainSettingsPage.xaml.cs">
+      <DependentUpon>OrgMainSettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\OrgPages\OrgUsersPage.xaml.cs">
       <DependentUpon>OrgUsersPage.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,9 @@
     <Compile Include="ViewModel\Org\OrgExpertViewModel.cs" />
     <Compile Include="ViewModel\Org\OrgReportViewModel.cs" />
     <Compile Include="ViewModel\Org\OrgSettingsViewModel.cs" />
+    <Compile Include="ViewModel\Org\OrgSettings\OrgMainSettingsViewModel.cs" />
+    <Compile Include="ViewModel\Org\OrgSettings\OrgSettingsExpertRolesViewModel.cs" />
+    <Compile Include="ViewModel\Org\OrgSettings\OrgSettingsProtocolsViewModel.cs" />
     <Compile Include="ViewModel\Org\OrgUserViewModel.cs" />
     <Compile Include="View\Expert\ExpertExpertsView.xaml.cs">
       <DependentUpon>ExpertExpertsView.xaml</DependentUpon>
@@ -107,6 +113,15 @@
     </Compile>
     <Compile Include="View\Org\OrgSettingsView.xaml.cs">
       <DependentUpon>OrgSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Org\OrgSettings\OrgSettingsExpertRolesView.xaml.cs">
+      <DependentUpon>OrgSettingsExpertRolesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Org\OrgSettings\OrgSettingsMainView.xaml.cs">
+      <DependentUpon>OrgSettingsMainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Org\OrgSettings\OrgSettingsProtocolsView.xaml.cs">
+      <DependentUpon>OrgSettingsProtocolsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Org\OrgUsersView.xaml.cs">
       <DependentUpon>OrgUsersView.xaml</DependentUpon>
@@ -208,6 +223,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\OrgPages\OrgMainSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\OrgPages\OrgUsersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -245,6 +264,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Org\OrgSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Org\OrgSettings\OrgSettingsExpertRolesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Org\OrgSettings\OrgSettingsMainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Org\OrgSettings\OrgSettingsProtocolsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
