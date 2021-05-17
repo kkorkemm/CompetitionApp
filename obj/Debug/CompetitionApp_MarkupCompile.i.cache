@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\C#\CompetitionApp\CompetitionApp\App.xaml
-231372100451
+25687023379
 2-246117042
-57-1925963034
+59-68433154
 17-407662433
-MainWindow.xaml;Pages\ExpertPage.xaml;Pages\ExpertPages\ExpertAddExpertPage.xaml;Pages\ExpertPages\ExpertAddUsersPage.xaml;Pages\ExpertPages\ExpertExpertsPage.xaml;Pages\ExpertPages\ExpertUsersPage.xaml;Pages\LoginPage.xaml;Pages\OrgPage.xaml;Pages\OrgPages\OrgMainSettingsPage.xaml;Pages\OrgPages\OrgUsersPage.xaml;Styles\Fonts.xaml;Styles\GlobalStyles.xaml;Styles\MenuStyle.xaml;View\Expert\ExpertExpertsView.xaml;View\Expert\ExpertProtocolsView.xaml;View\Expert\ExpertUsersView.xaml;View\Org\OrgExpertView.xaml;View\Org\OrgReportView.xaml;View\Org\OrgSettingsView.xaml;View\Org\OrgSettings\OrgSettingsExpertRolesView.xaml;View\Org\OrgSettings\OrgSettingsMainView.xaml;View\Org\OrgSettings\OrgSettingsProtocolsView.xaml;View\Org\OrgUsersView.xaml;
+MainWindow.xaml;Pages\ExpertPage.xaml;Pages\ExpertPages\ExpertAddExpertPage.xaml;Pages\ExpertPages\ExpertAddUsersPage.xaml;Pages\ExpertPages\ExpertExpertsPage.xaml;Pages\ExpertPages\ExpertUsersPage.xaml;Pages\LoginPage.xaml;Pages\OrgPage.xaml;Pages\OrgPages\OrgExpertRolesPage.xaml;Pages\OrgPages\OrgMainSettingsPage.xaml;Pages\OrgPages\OrgProtocolsSettingsPage.xaml;Pages\OrgPages\OrgUsersPage.xaml;Styles\Fonts.xaml;Styles\GlobalStyles.xaml;Styles\MenuStyle.xaml;View\Expert\ExpertExpertsView.xaml;View\Expert\ExpertProtocolsView.xaml;View\Expert\ExpertUsersView.xaml;View\Org\OrgExpertView.xaml;View\Org\OrgReportView.xaml;View\Org\OrgSettingsView.xaml;View\Org\OrgSettings\OrgSettingsExpertRolesView.xaml;View\Org\OrgSettings\OrgSettingsMainView.xaml;View\Org\OrgSettings\OrgSettingsProtocolsView.xaml;View\Org\OrgUsersView.xaml;
 
 True
 

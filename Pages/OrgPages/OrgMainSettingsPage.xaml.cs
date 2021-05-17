@@ -1,28 +1,61 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
+using Microsoft.Win32;
+using System.IO;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CompetitionApp.Pages.OrgPages
 {
+    using Base;
     /// <summary>
     /// Логика взаимодействия для OrgMainSettingsPage.xaml
     /// </summary>
     public partial class OrgMainSettingsPage : Page
     {
+        Competition currentCompetition = new Competition();
+
         public OrgMainSettingsPage()
         {
             InitializeComponent();
+
+            currentCompetition = CompetitionDBEntities.currentCompettion;
+            DataContext = currentCompetition;
+        }
+
+        private void BtnLogo_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog()
+            {
+                Filter = "Image Files(*.png; *.jpg; *.jpeg)|*.png; *.jpg; *.jpeg"
+            };
+
+            if (fileDialog.ShowDialog() == true)
+            {
+                byte[] imageData;
+
+                using (FileStream file = new FileStream(fileDialog.FileName, FileMode.Open))
+                {
+                    imageData = new byte[file.Length];
+                    file.Read(imageData, 0, imageData.Length);
+                }
+
+                ImageLogo.Source = new BitmapImage(new Uri(fileDialog.FileName));
+                currentCompetition.Logo = imageData;
+            }
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                CompetitionDBEntities.GetContext().SaveChanges();
+                MessageBox.Show("Настройки чемпионата сохранены!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

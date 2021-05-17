@@ -79,8 +79,14 @@
     <Compile Include="Pages\OrgPage.xaml.cs">
       <DependentUpon>OrgPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OrgPages\OrgExpertRolesPage.xaml.cs">
+      <DependentUpon>OrgExpertRolesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\OrgPages\OrgMainSettingsPage.xaml.cs">
       <DependentUpon>OrgMainSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrgPages\OrgProtocolsSettingsPage.xaml.cs">
+      <DependentUpon>OrgProtocolsSettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\OrgPages\OrgUsersPage.xaml.cs">
       <DependentUpon>OrgUsersPage.xaml</DependentUpon>
@@ -223,7 +229,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\OrgPages\OrgExpertRolesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\OrgPages\OrgMainSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OrgPages\OrgProtocolsSettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

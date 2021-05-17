@@ -20,4 +20,6 @@ FC:\C#\CompetitionApp\CompetitionApp\View\Org\OrgSettings\OrgSettingsMainView.xa
 FC:\C#\CompetitionApp\CompetitionApp\View\Org\OrgSettings\OrgSettingsProtocolsView.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\View\Org\OrgUsersView.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgMainSettingsPage.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgProtocolsSettingsPage.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgExpertRolesPage.xaml;;
 

@@ -13,20 +13,31 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CompetitionApp.View.Org.OrgSettings
+namespace CompetitionApp.Pages.OrgPages
 {
-    using Pages.OrgPages;
-
     /// <summary>
-    /// Логика взаимодействия для OrgSettingsExpertRolesView.xaml
+    /// Логика взаимодействия для OrgExpertRolesPage.xaml
     /// </summary>
-    public partial class OrgSettingsExpertRolesView : UserControl
+    public partial class OrgExpertRolesPage : Page
     {
-        public OrgSettingsExpertRolesView()
+        public OrgExpertRolesPage()
         {
             InitializeComponent();
-            ExpertRolesFrame.Navigate(new OrgExpertRolesPage());
-            Navigation.SubFrame = ExpertRolesFrame;
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

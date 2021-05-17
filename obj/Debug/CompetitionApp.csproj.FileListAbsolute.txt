@@ -58,3 +58,7 @@ C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgSettings\OrgSettingsPr
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\CompetitionApp.csprojAssemblyReference.cache
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgMainSettingsPage.g.cs
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgMainSettingsPage.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgProtocolsSettingsPage.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgProtocolsSettingsPage.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgExpertRolesPage.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgExpertRolesPage.baml

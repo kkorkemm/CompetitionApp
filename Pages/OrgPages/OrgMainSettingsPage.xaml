@@ -15,10 +15,18 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel VerticalAlignment="Center">
-            <Image Height="auto">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Height="auto"
+                   VerticalAlignment="Center"
+                   x:Name="ImageLogo">
                 <Image.Source>
-                    <Binding>
+                    <Binding Path="Logo">
                         <Binding.TargetNullValue>
                             <ImageSource>
                                 /Logos/wsrlogo-02.png
@@ -27,25 +35,47 @@
                     </Binding>
                 </Image.Source>
             </Image>
+
             <Button x:Name="BtnLogo"
-                    Content="Загрузить логотип"
-                    Style="{StaticResource BtnYellow}"
-                    Margin="30 20 30 20"/>
-        </StackPanel>
+                Content="Загрузить логотип"
+                Click="BtnLogo_Click"
+                Style="{StaticResource BtnYellow}"
+                Margin="30 20 30 20"
+                Grid.Row="1"/>
+        </Grid>
 
-        <StackPanel Grid.Column="1"
-                    VerticalAlignment="Center"
-                    Margin="30 0 30 0">
+        <Grid Grid.Column="1"
+              Margin="30 0 30 0">
 
-            <CheckBox Content="Главный эксперт может принимать участие в оценке"/>
-            <CheckBox Content="Заместитель главного эксперта может принимать участие в оценке"/>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel VerticalAlignment="Center">
+                <CheckBox Margin="0 0 0 10"
+                          x:Name="CheckChief"
+                          IsChecked="{Binding CanExpertScore}">
+                    <TextBlock Text="Главный эксперт может принимать участие в оценке"
+                               FontSize="16"
+                               TextWrapping="Wrap"/>
+                </CheckBox>
+                <CheckBox x:Name="CheckDeputyExpert"
+                          IsChecked="{Binding CanAssistScore}">
+                    <TextBlock Text="Заместитель главного эксперта может принимать участие в оценке"
+                               FontSize="16"
+                               TextWrapping="Wrap"/>
+                </CheckBox>
+            </StackPanel>
 
             <Button x:Name="BtnSave"
                     Content="Сохранить"
                     Style="{StaticResource BtnBlue}"
-                    Margin="30 20 30 20"/>
+                    Margin="0 20 0 20"
+                    Grid.Row="1"
+                    Click="BtnSave_Click"/>
 
-        </StackPanel>
+        </Grid>
 
     </Grid>
 </Page>

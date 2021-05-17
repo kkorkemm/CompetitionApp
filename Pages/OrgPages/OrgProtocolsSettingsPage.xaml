@@ -1,0 +1,85 @@
+﻿<Page x:Class="CompetitionApp.Pages.OrgPages.OrgProtocolsSettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CompetitionApp.Pages.OrgPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrgProtocolsSettingsPage">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Orientation="Horizontal"
+                   HorizontalAlignment="Right"
+                   Margin="0 20 0 0">
+
+            <StackPanel Orientation="Horizontal"
+                        Margin="0 0 20 0">
+                <TextBlock Text="Протоколы для: "
+                           VerticalAlignment="Center"
+                           Margin="0 0 10 0"/>
+                <ComboBox x:Name="ComboRoles"
+                          Width="200">
+                    <ComboBoxItem Content="Все протоколы"/>
+                    <ComboBoxItem Content="Участников"/>
+                    <ComboBoxItem Content="Экспертов"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="День чемпионата: "
+                           VerticalAlignment="Center"
+                           Margin="0 0 10 0"/>
+                <ComboBox x:Name="ComboDays"
+                          Width="200"
+                          DisplayMemberPath="DayName"/>
+            </StackPanel>
+            
+        </WrapPanel>
+
+        <DataGrid Grid.Row="1"
+                  Margin="0 20 0 20">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn/>
+                <DataGridTextColumn Header="Наименование"
+                                    Width="3*"/>
+                <DataGridTextColumn Header="День чемпионата"
+                                    Width="*"/>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEdit"
+                                    Click="BtnEdit_Click"
+                                    Content="Изменить"
+                                    Style="{StaticResource BtnYellow}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="2">
+            <Button x:Name="BtnAdd"
+                    Content="Добавить"
+                    Click="BtnAdd_Click"
+                    Width="150"
+                    Margin="0 0 10 0"
+                    Style="{StaticResource BtnBlue}"/>
+            <Button x:Name="BtnDelete"
+                    Content="Удалить"
+                    Click="BtnDelete_Click"
+                    Width="150"
+                    Style="{StaticResource BtnRed}"
+                    Margin="0 0 10 0"/>
+        </StackPanel>
+        
+    </Grid>
+</Page>
