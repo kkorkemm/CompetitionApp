@@ -26,11 +26,9 @@
                            VerticalAlignment="Center"
                            Margin="0 0 10 0"/>
                 <ComboBox x:Name="ComboRoles"
-                          Width="200">
-                    <ComboBoxItem Content="Все протоколы"/>
-                    <ComboBoxItem Content="Участников"/>
-                    <ComboBoxItem Content="Экспертов"/>
-                </ComboBox>
+                          Width="200"
+                          DisplayMemberPath="RoleName"
+                          SelectionChanged="ComboRoles_SelectionChanged"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
@@ -39,20 +37,26 @@
                            Margin="0 0 10 0"/>
                 <ComboBox x:Name="ComboDays"
                           Width="200"
-                          DisplayMemberPath="DayName"/>
+                          DisplayMemberPath="DayName"
+                          SelectionChanged="ComboDays_SelectionChanged"/>
             </StackPanel>
             
         </WrapPanel>
 
         <DataGrid Grid.Row="1"
-                  Margin="0 20 0 20">
+                  Margin="0 20 0 20"
+                  x:Name="DGridProtocols"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn/>
+                <DataGridCheckBoxColumn Binding="{Binding Active}"/>
                 <DataGridTextColumn Header="Наименование"
-                                    Width="3*"/>
+                                    Width="3*"
+                                    Binding="{Binding ProtocolName}"/>
                 <DataGridTextColumn Header="День чемпионата"
-                                    Width="*"/>
-                <DataGridTemplateColumn Width="auto">
+                                    Width="*"
+                                    Binding="{Binding Day.DayName}"/>
+                <DataGridTemplateColumn Width="90">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button x:Name="BtnEdit"

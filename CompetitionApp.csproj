@@ -79,6 +79,12 @@
     <Compile Include="Pages\OrgPage.xaml.cs">
       <DependentUpon>OrgPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OrgPages\OrgAddEditExpertRolePage.xaml.cs">
+      <DependentUpon>OrgAddEditExpertRolePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrgPages\OrgAddEditProtocolPage.xaml.cs">
+      <DependentUpon>OrgAddEditProtocolPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\OrgPages\OrgExpertRolesPage.xaml.cs">
       <DependentUpon>OrgExpertRolesPage.xaml</DependentUpon>
     </Compile>
@@ -88,8 +94,14 @@
     <Compile Include="Pages\OrgPages\OrgProtocolsSettingsPage.xaml.cs">
       <DependentUpon>OrgProtocolsSettingsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OrgPages\OrgProtocolViewPage.xaml.cs">
+      <DependentUpon>OrgProtocolViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\OrgPages\OrgUsersPage.xaml.cs">
       <DependentUpon>OrgUsersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrgPages\OrgViewExpertRolePage.xaml.cs">
+      <DependentUpon>OrgViewExpertRolePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Expert\ExpertExpertsViewModel.cs" />
     <Compile Include="ViewModel\Expert\ExpertProtocolsViewModel.cs" />
@@ -229,6 +241,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\OrgPages\OrgAddEditExpertRolePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OrgPages\OrgAddEditProtocolPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\OrgPages\OrgExpertRolesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -241,7 +261,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\OrgPages\OrgProtocolViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\OrgPages\OrgUsersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OrgPages\OrgViewExpertRolePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
