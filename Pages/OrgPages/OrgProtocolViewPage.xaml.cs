@@ -15,14 +15,22 @@ using System.Windows.Shapes;
 
 namespace CompetitionApp.Pages.OrgPages
 {
+    using Base;
+
     /// <summary>
     /// Логика взаимодействия для OrgProtocolViewPage.xaml
     /// </summary>
     public partial class OrgProtocolViewPage : Page
     {
-        public OrgProtocolViewPage()
+        public OrgProtocolViewPage(Protocols protocol)
         {
             InitializeComponent();
+            DataContext = protocol;
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.SubFrame.Navigate(new OrgProtocolsSettingsPage());
         }
     }
 }

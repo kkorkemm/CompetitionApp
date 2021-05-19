@@ -8,7 +8,82 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="OrgProtocolViewPage">
 
+    <Page.Resources>
+        <Style TargetType="TextBlock" x:Key="TextDesc">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Justify"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0 0 20 10"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="TextInfo">
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Justify"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0 0 0 10"/>
+        </Style>
+    </Page.Resources>
+    
     <Grid>
+
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <TextBlock Text="Просмотр протокола"
+                       Style="{StaticResource H1}"/>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Наименование: "
+                           Style="{StaticResource TextDesc}"/>
+                <TextBlock Text="{Binding ProtocolName}"
+                           Style="{StaticResource TextInfo}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Содержание: "
+                           Style="{StaticResource TextDesc}"/>
+                <TextBlock Text="{Binding Content}"
+                           Style="{StaticResource TextInfo}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Предназначен для: "
+                           Style="{StaticResource TextDesc}"/>
+                <TextBlock Text="{Binding UserRole.RoleName}"
+                           Style="{StaticResource TextInfo}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="День чемпионата: "
+                           Style="{StaticResource TextDesc}"/>
+                <TextBlock Text="{Binding Day.DayName}"
+                           Style="{StaticResource TextInfo}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Используется на этом чемпионате: "
+                           Style="{StaticResource TextDesc}"/>
+                <TextBlock Text="{Binding IsActive}"
+                           Style="{StaticResource TextInfo}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Подписей собрано: "
+                           Style="{StaticResource TextDesc}"/>
+                <TextBlock Text=""
+                           Style="{StaticResource TextInfo}"/>
+            </StackPanel>
+
+
+            <Button x:Name="BtnBack"
+                    Content="Назад"
+                    Click="BtnBack_Click"
+                    Style="{StaticResource BtnBlue}"
+                    Margin="0 20 0 0"/>
+
+        </StackPanel>
+        
         
     </Grid>
 </Page>

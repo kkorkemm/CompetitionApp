@@ -36,6 +36,16 @@
                 <DataGridTemplateColumn Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
+                            <Button x:Name="BtnView"
+                                    Click="BtnView_Click"
+                                    Content="Просмотр"
+                                    Style="{StaticResource BtnYellow}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
                             <Button x:Name="BtnEdit"
                                     Click="BtnEdit_Click"
                                     Content="Изменить"

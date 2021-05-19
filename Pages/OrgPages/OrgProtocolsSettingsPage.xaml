@@ -56,7 +56,17 @@
                 <DataGridTextColumn Header="День чемпионата"
                                     Width="*"
                                     Binding="{Binding Day.DayName}"/>
-                <DataGridTemplateColumn Width="90">
+                <DataGridTemplateColumn Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnView"
+                                    Click="BtnView_Click"
+                                    Content="Просмотр"
+                                    Style="{StaticResource BtnYellow}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button x:Name="BtnEdit"

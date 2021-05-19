@@ -96,5 +96,10 @@ namespace CompetitionApp.Pages.OrgPages
         {
             UpdateProtocols();
         }
+
+        private void BtnView_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.SubFrame.Navigate(new OrgProtocolViewPage((sender as Button).DataContext as Protocols));
+        }
     }
 }

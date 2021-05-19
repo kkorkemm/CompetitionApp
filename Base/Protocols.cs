@@ -19,7 +19,9 @@ namespace CompetitionApp.Base
         {
             this.ProtocolAndUser = new HashSet<ProtocolAndUser>();
         }
-    
+
+        public string IsActive => Active ? "Да" : "Нет";
+
         public int ID { get; set; }
         public string ProtocolName { get; set; }
         public string Content { get; set; }

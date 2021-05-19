@@ -1,4 +1,4 @@
-﻿
+﻿C:\C#\CompetitionApp\CompetitionApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FC:\C#\CompetitionApp\CompetitionApp\App.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\MainWindow.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\ExpertPage.xaml;;
@@ -13,7 +13,9 @@ FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgAddEditProtocolPage.xaml;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgExpertRolesPage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgMainSettingsPage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgProtocolsSettingsPage.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgProtocolViewPage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgUsersPage.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgViewExpertRolePage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\View\Expert\ExpertExpertsView.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\View\Expert\ExpertProtocolsView.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\View\Expert\ExpertUsersView.xaml;;
@@ -24,6 +26,4 @@ FC:\C#\CompetitionApp\CompetitionApp\View\Org\OrgSettings\OrgSettingsExpertRoles
 FC:\C#\CompetitionApp\CompetitionApp\View\Org\OrgSettings\OrgSettingsMainView.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\View\Org\OrgSettings\OrgSettingsProtocolsView.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\View\Org\OrgUsersView.xaml;;
-FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgProtocolViewPage.xaml;;
-FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgViewExpertRolePage.xaml;;
 
