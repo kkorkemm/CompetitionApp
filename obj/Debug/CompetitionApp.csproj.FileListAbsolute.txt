@@ -55,7 +55,6 @@ C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgSettings\OrgSettingsPr
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgSettings\OrgSettingsExpertRolesView.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgSettings\OrgSettingsMainView.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgSettings\OrgSettingsProtocolsView.baml
-C:\C#\CompetitionApp\CompetitionApp\obj\Debug\CompetitionApp.csprojAssemblyReference.cache
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgMainSettingsPage.g.cs
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgMainSettingsPage.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgProtocolsSettingsPage.g.cs
@@ -70,3 +69,19 @@ C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgProtocolViewPage
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgViewExpertRolePage.g.cs
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgProtocolViewPage.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgViewExpertRolePage.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgDetailedReportPage.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgMainReportPage.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgReport\OrgDetailedReportView.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgReport\OrgMainReportView.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgDetailedReportPage.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgMainReportPage.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgReport\OrgDetailedReportView.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Org\OrgReport\OrgMainReportView.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertProtocolFormPage.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertProtocolReportPage.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Expert\ExpertProtocolFormView.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Expert\ExpertProtocolReportView.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertProtocolFormPage.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertProtocolReportPage.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Expert\ExpertProtocolFormView.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Expert\ExpertProtocolReportView.baml

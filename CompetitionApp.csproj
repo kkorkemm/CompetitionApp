@@ -73,6 +73,12 @@
     <Compile Include="Pages\ExpertPages\ExpertExpertsPage.xaml.cs">
       <DependentUpon>ExpertExpertsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ExpertPages\ExpertProtocolFormPage.xaml.cs">
+      <DependentUpon>ExpertProtocolFormPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExpertPages\ExpertProtocolReportPage.xaml.cs">
+      <DependentUpon>ExpertProtocolReportPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ExpertPages\ExpertUsersPage.xaml.cs">
       <DependentUpon>ExpertUsersPage.xaml</DependentUpon>
     </Compile>
@@ -85,8 +91,14 @@
     <Compile Include="Pages\OrgPages\OrgAddEditProtocolPage.xaml.cs">
       <DependentUpon>OrgAddEditProtocolPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OrgPages\OrgDetailedReportPage.xaml.cs">
+      <DependentUpon>OrgDetailedReportPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\OrgPages\OrgExpertRolesPage.xaml.cs">
       <DependentUpon>OrgExpertRolesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrgPages\OrgMainReportPage.xaml.cs">
+      <DependentUpon>OrgMainReportPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\OrgPages\OrgMainSettingsPage.xaml.cs">
       <DependentUpon>OrgMainSettingsPage.xaml</DependentUpon>
@@ -104,11 +116,15 @@
       <DependentUpon>OrgViewExpertRolePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Expert\ExpertExpertsViewModel.cs" />
+    <Compile Include="ViewModel\Expert\ExpertProtocolFormViewModel.cs" />
+    <Compile Include="ViewModel\Expert\ExpertProtocolReportViewModel.cs" />
     <Compile Include="ViewModel\Expert\ExpertProtocolsViewModel.cs" />
     <Compile Include="ViewModel\Expert\ExpertUsersViewModel.cs" />
     <Compile Include="ViewModel\MainVM.cs" />
     <Compile Include="ViewModel\Org\OrgExpertViewModel.cs" />
     <Compile Include="ViewModel\Org\OrgReportViewModel.cs" />
+    <Compile Include="ViewModel\Org\OrgReport\OrgDetailedReportViewModel.cs" />
+    <Compile Include="ViewModel\Org\OrgReport\OrgMainReportViewModel.cs" />
     <Compile Include="ViewModel\Org\OrgSettingsViewModel.cs" />
     <Compile Include="ViewModel\Org\OrgSettings\OrgMainSettingsViewModel.cs" />
     <Compile Include="ViewModel\Org\OrgSettings\OrgSettingsExpertRolesViewModel.cs" />
@@ -116,6 +132,12 @@
     <Compile Include="ViewModel\Org\OrgUserViewModel.cs" />
     <Compile Include="View\Expert\ExpertExpertsView.xaml.cs">
       <DependentUpon>ExpertExpertsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Expert\ExpertProtocolFormView.xaml.cs">
+      <DependentUpon>ExpertProtocolFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Expert\ExpertProtocolReportView.xaml.cs">
+      <DependentUpon>ExpertProtocolReportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Expert\ExpertProtocolsView.xaml.cs">
       <DependentUpon>ExpertProtocolsView.xaml</DependentUpon>
@@ -128,6 +150,12 @@
     </Compile>
     <Compile Include="View\Org\OrgReportView.xaml.cs">
       <DependentUpon>OrgReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Org\OrgReport\OrgDetailedReportView.xaml.cs">
+      <DependentUpon>OrgDetailedReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Org\OrgReport\OrgMainReportView.xaml.cs">
+      <DependentUpon>OrgMainReportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Org\OrgSettingsView.xaml.cs">
       <DependentUpon>OrgSettingsView.xaml</DependentUpon>
@@ -229,6 +257,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ExpertPages\ExpertProtocolFormPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ExpertPages\ExpertProtocolReportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ExpertPages\ExpertUsersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -249,7 +285,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\OrgPages\OrgDetailedReportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\OrgPages\OrgExpertRolesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OrgPages\OrgMainReportPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -289,6 +333,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Expert\ExpertProtocolFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Expert\ExpertProtocolReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Expert\ExpertProtocolsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -302,6 +354,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Org\OrgReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Org\OrgReport\OrgDetailedReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Org\OrgReport\OrgMainReportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

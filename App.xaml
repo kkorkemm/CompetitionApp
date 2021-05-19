@@ -8,6 +8,10 @@
              xmlns:viewModelOrg="clr-namespace:CompetitionApp.ViewModel.Org"
              xmlns:viewOrgSettings="clr-namespace:CompetitionApp.View.Org.OrgSettings"
              xmlns:viewModelOrgSettings="clr-namespace:CompetitionApp.ViewModel.Org.OrgSettings"
+             xmlns:viewModelOrgReport="clr-namespace:CompetitionApp.ViewModel.Org.OrgReport"
+             xmlns:viewOrgReport="clr-namespace:CompetitionApp.View.Org.OrgReport"
+             xmlns:viewExpertProtocol="clr-namespace:CompetitionApp.View.Expert"
+             xmlns:viewModelExpertProtocol="clr-namespace:CompetitionApp.ViewModel.Expert"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
@@ -47,7 +51,7 @@
             <DataTemplate DataType="{x:Type viewModelOrg:OrgReportViewModel}">
                 <viewOrg:OrgReportView/>
             </DataTemplate>
-            
+
             <!--НАСТРОЙКИ ОРГАНИЗАТОРА-->
             <DataTemplate DataType="{x:Type viewModelOrgSettings:OrgMainSettingsViewModel}">
                 <viewOrgSettings:OrgSettingsMainView/>
@@ -59,8 +63,23 @@
                 <viewOrgSettings:OrgSettingsExpertRolesView/>
             </DataTemplate>
 
+            <!--ОТЧЕТ ПО ПРОТОКОЛАМ ОРГАНИЗАТОРА-->
+            <DataTemplate DataType="{x:Type viewModelOrgReport:OrgMainReportViewModel}">
+                <viewOrgReport:OrgMainReportView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModelOrgReport:OrgDetailedReportViewModel}">
+                <viewOrgReport:OrgDetailedReportView/>
+            </DataTemplate>
 
+            <!--ПРОТОКОЛЫ ЭКСПЕРТ-->
+            <DataTemplate DataType="{x:Type viewModelExpertProtocol:ExpertProtocolFormViewModel}">
+                <viewExpertProtocol:ExpertProtocolFormView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModelExpertProtocol:ExpertProtocolReportViewModel}">
+                <viewExpertProtocol:ExpertProtocolReportView/>
+            </DataTemplate>
+            
         </ResourceDictionary>
-        
     </Application.Resources>
 </Application>
