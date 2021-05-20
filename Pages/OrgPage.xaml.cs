@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.IO;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace CompetitionApp.Pages
@@ -29,6 +31,8 @@ namespace CompetitionApp.Pages
 
             if (question == MessageBoxResult.Yes)
             {
+                string file = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CompetitionApp\login.txt";
+                File.Delete(file);
                 Navigation.MainFrame.Navigate(new LoginPage());
             }
         }

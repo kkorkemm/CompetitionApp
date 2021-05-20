@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Linq;
+using System.IO;
+using System.Text;
 
 namespace CompetitionApp
 {
@@ -78,7 +80,37 @@ namespace CompetitionApp
                     AddDay("C+1");
                 }
 
-                mainFrame.Navigate(new LoginPage());
+
+                //ЗАПОМНИТЬ МЕНЯ
+                string file = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CompetitionApp\login.txt";
+                if (File.Exists(file))
+                {
+                    string login;
+                    using (StreamReader sr = new StreamReader(file, Encoding.Default))
+                    {
+                        login = sr.ReadLine();
+                        sr.Close();
+                    }
+
+                    var user = CompetitionDBEntities.GetContext().User.Where(p => p.Surname == login && p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID).FirstOrDefault();
+
+                    CompetitionDBEntities.currentUser = user;
+
+                    if (user.UserRoleID == 3)
+                    {
+                        mainFrame.Navigate(new ExpertPage());
+                    }
+
+                    if (user.UserRoleID == 6)
+                    {
+                        mainFrame.Navigate(new OrgPage());
+                    }
+                }
+                else
+                {
+                    mainFrame.Navigate(new LoginPage());
+                }
+                
                 Navigation.MainFrame = mainFrame;
             }
         }

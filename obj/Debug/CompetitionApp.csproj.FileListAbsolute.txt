@@ -85,3 +85,4 @@ C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertProtocolFo
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertProtocolReportPage.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Expert\ExpertProtocolFormView.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Expert\ExpertProtocolReportView.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\CompetitionApp.csprojAssemblyReference.cache

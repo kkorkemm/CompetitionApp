@@ -3,10 +3,11 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
-
 namespace CompetitionApp.Pages
 {
     using Base;
+    using System;
+    using System.IO;
 
     /// <summary>
     /// Логика взаимодействия для LoginPage.xaml
@@ -51,6 +52,20 @@ namespace CompetitionApp.Pages
                                 /// TODO: Запомнить меня
                                 if (CheckRemember.IsChecked == true)
                                 {
+                                    string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CompetitionApp";
+                                    Directory.CreateDirectory(folder);
+
+                                    try
+                                    {
+                                        using (StreamWriter sw = new StreamWriter(folder + @"\login.txt", false, Encoding.Default))
+                                        {
+                                            sw.WriteLine(user.Surname);
+                                        }
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show(ex.Message);
+                                    }
 
                                 }
 
