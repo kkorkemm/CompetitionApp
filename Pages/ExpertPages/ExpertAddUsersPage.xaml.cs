@@ -30,7 +30,7 @@ namespace CompetitionApp.Pages.ExpertPages
 
             if (user != null)
             {
-                TextTitle.Text = "Редактирование участника";
+                TextTitle.Text = "Редактировать участника";
                 currentUser = user;
             }
 

@@ -21,7 +21,7 @@ namespace CompetitionApp.Pages.ExpertPages
 
             if (user != null)
             {
-                TextTitle.Text = "Редактирование эксперта";
+                TextTitle.Text = "Редактировать эксперта";
                 currentUser = user;
             }
 

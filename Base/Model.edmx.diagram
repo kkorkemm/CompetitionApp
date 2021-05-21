@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cd693f5b69864d3898ac10bbb1d0c09b" Name="Diagram1">
+        <EntityTypeShape EntityType="CompetitionDBModel.Competition" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.Day" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.Expert" Width="1.5" PointX="5.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.ExpertRole" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.Gender" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.ProtocolAndUser" Width="1.5" PointX="10.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.ProtocolExtraDateField" Width="1.5" PointX="7.5" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.ProtocolExtraTextField" Width="1.5" PointX="7.5" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.ProtocolExtraTimeStampField" Width="1.5" PointX="7.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.Protocols" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.Region" Width="1.5" PointX="0.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.RegionDistrict" Width="1.5" PointX="1.5" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.Skill" Width="1.5" PointX="0.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.User" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.UserRole" Width="1.5" PointX="0.75" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CompetitionDBModel.UserStatus" Width="1.5" PointX="0.75" PointY="27.375" IsExpanded="true" />
+        <AssociationConnector Association="CompetitionDBModel.FK_Day_Competition" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_ExpertRole_Competition" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_User_Competition" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_Protocols_Day" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_Expert_User" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_Expert_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_User_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_ProtocolAndUser_Protocols" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_ProtocolAndUser_User" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_ProtocolExtraDateField_Protocols" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_ProtocolExtraTextField_Protocols" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_ProtocolExtraTimeStampField_Protocols" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_Protocols_UserRole" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_Region_RegionDistrict" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_User_Region" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_User_Skill" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_User_UserRole" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.FK_User_UserStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="CompetitionDBModel.ExpertAndRole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

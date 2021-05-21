@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace CompetitionApp.Pages
 {
@@ -20,6 +21,7 @@ namespace CompetitionApp.Pages
             TextHello.Text += "\n"+ CompetitionDBEntities.currentUser.FullName;
             TextDay.Text = $"День {Helper.WhatDay()}";
             TextCompName.Text = CompetitionDBEntities.currentCompettion.CompetitionName;
+
         }
 
         /// <summary>

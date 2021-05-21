@@ -23,7 +23,7 @@
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center">
 
-            <TextBlock Text="Добавление участника"
+            <TextBlock Text="Добавить участника"
                        Style="{StaticResource H1}"
                        x:Name="TextTitle"/>
 

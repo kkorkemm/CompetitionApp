@@ -12,6 +12,8 @@ FC:\C#\CompetitionApp\CompetitionApp\Pages\LoginPage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgAddEditExpertRolePage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgAddEditProtocolPage.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgAddProtocolColumnPage.xaml;;
+FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgAddProtocolFieldPage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgDetailedReportPage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgExpertRolesPage.xaml;;
 FC:\C#\CompetitionApp\CompetitionApp\Pages\OrgPages\OrgMainReportPage.xaml;;

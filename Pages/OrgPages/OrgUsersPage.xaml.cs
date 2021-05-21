@@ -89,5 +89,10 @@ namespace CompetitionApp.Pages.OrgPages
         {
             UpdateUsers();
         }
+
+        private void DGridUsers_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = $" {e.Row.GetIndex() + 1} ";
+        }
     }
 }

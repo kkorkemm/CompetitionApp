@@ -20,7 +20,10 @@ namespace CompetitionApp.Pages.OrgPages
             InitializeComponent();
 
             if (protocol != null)
+            {
                 currentProtocol = protocol;
+                TextTitle.Text = "Редактировать протокол";
+            }
 
             DataContext = currentProtocol;
 
@@ -31,6 +34,31 @@ namespace CompetitionApp.Pages.OrgPages
             var roles = CompetitionDBEntities.GetContext().UserRole.Where(p => p.ID == 1 || p.ID == 2).ToList();
             ComboRoles.ItemsSource = roles;
             ComboRoles.SelectedIndex = 0;
+
+            if (currentProtocol.ProtocolExtraTextField.Count > 0)
+            {
+                var textList = currentProtocol.ProtocolExtraTextField.ToList();
+                foreach (var text in textList)
+                {
+                    StackPanel stackPanel = new StackPanel()
+                    {
+                        Orientation = Orientation.Horizontal,
+                        Margin = new Thickness(0, 0, 0, 10)
+                    };
+                    TextBlock textBlock = new TextBlock()
+                    {
+                        Text = text.ExtraFieldName
+                    };
+                    TextBox textBox = new TextBox()
+                    {
+                        Text = text.Content
+                    };
+                    stackPanel.Children.Add(textBlock);
+                    stackPanel.Children.Add(textBox);
+
+                    StackPanelAdded.Children.Add(stackPanel);
+                }
+            }
         }
 
         void SaveChanges()
@@ -92,12 +120,12 @@ namespace CompetitionApp.Pages.OrgPages
 
         private void BtnAddField_Click(object sender, RoutedEventArgs e)
         {
-
+            Navigation.SubFrame.Navigate(new OrgAddProtocolFieldPage(currentProtocol));
         }
 
         private void BtnAddColumn_Click(object sender, RoutedEventArgs e)
         {
-
+            Navigation.SubFrame.Navigate(new OrgAddProtocolColumnPage(currentProtocol));
         }
     }
 }

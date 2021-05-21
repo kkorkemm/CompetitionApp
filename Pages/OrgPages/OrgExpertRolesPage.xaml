@@ -18,9 +18,9 @@
         <DataGrid Margin="0 20 0 20"
                   x:Name="DGridExperts"
                   AutoGenerateColumns="False"
-                  IsReadOnly="True">
+                  IsReadOnly="True"
+                  LoadingRow="DGridExperts_LoadingRow">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№"/>
                 <DataGridTextColumn Header="Роль эксперта (особое полномочие)"
                                     Width="2*"
                                     Binding="{Binding ExpertRoleName}"/>

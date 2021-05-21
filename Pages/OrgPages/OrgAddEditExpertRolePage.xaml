@@ -27,7 +27,8 @@
                     VerticalAlignment="Center">
 
             <TextBlock Text="Добавить роль для экперта"
-                       Style="{StaticResource H1}"/>
+                       Style="{StaticResource H1}"
+                       x:Name="TextTitle"/>
 
             <StackPanel>
 

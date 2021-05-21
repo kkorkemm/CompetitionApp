@@ -83,6 +83,10 @@
     <NavigationProperty Name="Day" Relationship="Self.FK_Protocols_Day" FromRole="Protocols" ToRole="Day" />
     <NavigationProperty Name="ProtocolAndUser" Relationship="Self.FK_ProtocolAndUser_Protocols" FromRole="Protocols" ToRole="ProtocolAndUser" />
     <NavigationProperty Name="UserRole" Relationship="Self.FK_Protocols_UserRole" FromRole="Protocols" ToRole="UserRole" />
+    <NavigationProperty Name="ProtocolExtraField" Relationship="CompetitionDBModel.FK_ProtocolExtraField_Protocols" FromRole="Protocols" ToRole="ProtocolExtraField" />
+    <NavigationProperty Name="ProtocolExtraDateField" Relationship="CompetitionDBModel.FK_ProtocolExtraDateField_Protocols" FromRole="Protocols" ToRole="ProtocolExtraDateField" />
+    <NavigationProperty Name="ProtocolExtraTextField" Relationship="CompetitionDBModel.FK_ProtocolExtraTextField_Protocols" FromRole="Protocols" ToRole="ProtocolExtraTextField" />
+    <NavigationProperty Name="ProtocolExtraTimeStampField" Relationship="CompetitionDBModel.FK_ProtocolExtraTimeStampField_Protocols" FromRole="Protocols" ToRole="ProtocolExtraTimeStampField" />
   </EntityType>
   <EntityType Name="Region">
     <Key>
@@ -434,5 +438,112 @@
       <End Role="Expert" EntitySet="Expert" />
       <End Role="ExpertRole" EntitySet="ExpertRole" />
     </AssociationSet>
+    <EntitySet Name="ProtocolExtraField" EntityType="CompetitionDBModel.ProtocolExtraField" />
+    <AssociationSet Name="FK_ProtocolExtraField_Protocols" Association="CompetitionDBModel.FK_ProtocolExtraField_Protocols">
+      <End Role="Protocols" EntitySet="Protocols" />
+      <End Role="ProtocolExtraField" EntitySet="ProtocolExtraField" />
+    </AssociationSet>
+    <EntitySet Name="ProtocolExtraDateField" EntityType="CompetitionDBModel.ProtocolExtraDateField" />
+    <EntitySet Name="ProtocolExtraTextField" EntityType="CompetitionDBModel.ProtocolExtraTextField" />
+    <EntitySet Name="ProtocolExtraTimeStampField" EntityType="CompetitionDBModel.ProtocolExtraTimeStampField" />
+    <AssociationSet Name="FK_ProtocolExtraDateField_Protocols" Association="CompetitionDBModel.FK_ProtocolExtraDateField_Protocols">
+      <End Role="Protocols" EntitySet="Protocols" />
+      <End Role="ProtocolExtraDateField" EntitySet="ProtocolExtraDateField" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProtocolExtraTextField_Protocols" Association="CompetitionDBModel.FK_ProtocolExtraTextField_Protocols">
+      <End Role="Protocols" EntitySet="Protocols" />
+      <End Role="ProtocolExtraTextField" EntitySet="ProtocolExtraTextField" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProtocolExtraTimeStampField_Protocols" Association="CompetitionDBModel.FK_ProtocolExtraTimeStampField_Protocols">
+      <End Role="Protocols" EntitySet="Protocols" />
+      <End Role="ProtocolExtraTimeStampField" EntitySet="ProtocolExtraTimeStampField" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="ProtocolExtraField">
+    <Key>
+      <PropertyRef Name="ExtraFieldID" />
+    </Key>
+    <Property Name="ExtraFieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProtocolID" Type="Int32" Nullable="false" />
+    <Property Name="ExtraFieldName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Protocols" Relationship="CompetitionDBModel.FK_ProtocolExtraField_Protocols" FromRole="ProtocolExtraField" ToRole="Protocols" />
+  </EntityType>
+  <Association Name="FK_ProtocolExtraField_Protocols">
+    <End Type="CompetitionDBModel.Protocols" Role="Protocols" Multiplicity="1" />
+    <End Type="CompetitionDBModel.ProtocolExtraField" Role="ProtocolExtraField" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Protocols">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProtocolExtraField">
+        <PropertyRef Name="ProtocolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProtocolExtraDateField">
+    <Key>
+      <PropertyRef Name="ExtraFieldID" />
+    </Key>
+    <Property Name="ExtraFieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProtocolID" Type="Int32" Nullable="false" />
+    <Property Name="ExtraFieldName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Protocols" Relationship="CompetitionDBModel.FK_ProtocolExtraDateField_Protocols" FromRole="ProtocolExtraDateField" ToRole="Protocols" />
+  </EntityType>
+  <EntityType Name="ProtocolExtraTextField">
+    <Key>
+      <PropertyRef Name="ExtraFieldID" />
+    </Key>
+    <Property Name="ExtraFieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProtocolID" Type="Int32" Nullable="false" />
+    <Property Name="ExtraFieldName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Protocols" Relationship="CompetitionDBModel.FK_ProtocolExtraTextField_Protocols" FromRole="ProtocolExtraTextField" ToRole="Protocols" />
+  </EntityType>
+  <EntityType Name="ProtocolExtraTimeStampField">
+    <Key>
+      <PropertyRef Name="ExtraFielsID" />
+    </Key>
+    <Property Name="ExtraFielsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProtocolID" Type="Int32" Nullable="false" />
+    <Property Name="ExtraFieldName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Protocols" Relationship="CompetitionDBModel.FK_ProtocolExtraTimeStampField_Protocols" FromRole="ProtocolExtraTimeStampField" ToRole="Protocols" />
+  </EntityType>
+  <Association Name="FK_ProtocolExtraDateField_Protocols">
+    <End Type="CompetitionDBModel.Protocols" Role="Protocols" Multiplicity="1" />
+    <End Type="CompetitionDBModel.ProtocolExtraDateField" Role="ProtocolExtraDateField" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Protocols">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProtocolExtraDateField">
+        <PropertyRef Name="ProtocolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProtocolExtraTextField_Protocols">
+    <End Type="CompetitionDBModel.Protocols" Role="Protocols" Multiplicity="1" />
+    <End Type="CompetitionDBModel.ProtocolExtraTextField" Role="ProtocolExtraTextField" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Protocols">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProtocolExtraTextField">
+        <PropertyRef Name="ProtocolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProtocolExtraTimeStampField_Protocols">
+    <End Type="CompetitionDBModel.Protocols" Role="Protocols" Multiplicity="1" />
+    <End Type="CompetitionDBModel.ProtocolExtraTimeStampField" Role="ProtocolExtraTimeStampField" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Protocols">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProtocolExtraTimeStampField">
+        <PropertyRef Name="ProtocolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -12,7 +12,9 @@ namespace CompetitionApp.Base
             this.ProtocolAndUser = new HashSet<ProtocolAndUser>();
         }
 
-        public string FullName => Surname + " " + Name[0] + ". " + LastName[0] + ".";
+        public string FullName => Surname + " " + Name + " " + LastName;
+        public string ShortName => Surname + " " + Name[0] + "." + LastName[0] + ".";
+
         public int FullAge => DateTime.Now.Year - BirthDate.Year;
         public string FullAgeString
         {

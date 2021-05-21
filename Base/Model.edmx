@@ -69,6 +69,33 @@
           <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="Signed" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="ProtocolExtraDateField">
+          <Key>
+            <PropertyRef Name="ExtraFieldID" />
+          </Key>
+          <Property Name="ExtraFieldID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProtocolID" Type="int" Nullable="false" />
+          <Property Name="ExtraFieldName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Content" Type="date" />
+        </EntityType>
+        <EntityType Name="ProtocolExtraTextField">
+          <Key>
+            <PropertyRef Name="ExtraFieldID" />
+          </Key>
+          <Property Name="ExtraFieldID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProtocolID" Type="int" Nullable="false" />
+          <Property Name="ExtraFieldName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ProtocolExtraTimeStampField">
+          <Key>
+            <PropertyRef Name="ExtraFielsID" />
+          </Key>
+          <Property Name="ExtraFielsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProtocolID" Type="int" Nullable="false" />
+          <Property Name="ExtraFieldName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Content" Type="timestamp" StoreGeneratedPattern="Computed" />
+        </EntityType>
         <EntityType Name="Protocols">
           <Key>
             <PropertyRef Name="ID" />
@@ -252,6 +279,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProtocolExtraDateField_Protocols">
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="ProtocolExtraDateField" Type="Self.ProtocolExtraDateField" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Protocols">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProtocolExtraDateField">
+              <PropertyRef Name="ProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProtocolExtraTextField_Protocols">
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="ProtocolExtraTextField" Type="Self.ProtocolExtraTextField" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Protocols">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProtocolExtraTextField">
+              <PropertyRef Name="ProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProtocolExtraTimeStampField_Protocols">
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="ProtocolExtraTimeStampField" Type="Self.ProtocolExtraTimeStampField" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Protocols">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProtocolExtraTimeStampField">
+              <PropertyRef Name="ProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Protocols_Day">
           <End Role="Day" Type="Self.Day" Multiplicity="1" />
           <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
@@ -368,6 +431,9 @@
           <EntitySet Name="ExpertRole" EntityType="Self.ExpertRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProtocolAndUser" EntityType="Self.ProtocolAndUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProtocolExtraDateField" EntityType="Self.ProtocolExtraDateField" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProtocolExtraTextField" EntityType="Self.ProtocolExtraTextField" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProtocolExtraTimeStampField" EntityType="Self.ProtocolExtraTimeStampField" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Protocols" EntityType="Self.Protocols" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RegionDistrict" EntityType="Self.RegionDistrict" Schema="dbo" store:Type="Tables" />
@@ -407,6 +473,18 @@
           <AssociationSet Name="FK_ProtocolAndUser_User" Association="Self.FK_ProtocolAndUser_User">
             <End Role="User" EntitySet="User" />
             <End Role="ProtocolAndUser" EntitySet="ProtocolAndUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProtocolExtraDateField_Protocols" Association="Self.FK_ProtocolExtraDateField_Protocols">
+            <End Role="Protocols" EntitySet="Protocols" />
+            <End Role="ProtocolExtraDateField" EntitySet="ProtocolExtraDateField" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProtocolExtraTextField_Protocols" Association="Self.FK_ProtocolExtraTextField_Protocols">
+            <End Role="Protocols" EntitySet="Protocols" />
+            <End Role="ProtocolExtraTextField" EntitySet="ProtocolExtraTextField" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProtocolExtraTimeStampField_Protocols" Association="Self.FK_ProtocolExtraTimeStampField_Protocols">
+            <End Role="Protocols" EntitySet="Protocols" />
+            <End Role="ProtocolExtraTimeStampField" EntitySet="ProtocolExtraTimeStampField" />
           </AssociationSet>
           <AssociationSet Name="FK_Protocols_Day" Association="Self.FK_Protocols_Day">
             <End Role="Day" EntitySet="Day" />
@@ -519,6 +597,36 @@
           <NavigationProperty Name="Protocols" Relationship="Self.FK_ProtocolAndUser_Protocols" FromRole="ProtocolAndUser" ToRole="Protocols" />
           <NavigationProperty Name="User" Relationship="Self.FK_ProtocolAndUser_User" FromRole="ProtocolAndUser" ToRole="User" />
         </EntityType>
+        <EntityType Name="ProtocolExtraDateField">
+          <Key>
+            <PropertyRef Name="ExtraFieldID" />
+          </Key>
+          <Property Name="ExtraFieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProtocolID" Type="Int32" Nullable="false" />
+          <Property Name="ExtraFieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Protocols" Relationship="Self.FK_ProtocolExtraDateField_Protocols" FromRole="ProtocolExtraDateField" ToRole="Protocols" />
+        </EntityType>
+        <EntityType Name="ProtocolExtraTextField">
+          <Key>
+            <PropertyRef Name="ExtraFieldID" />
+          </Key>
+          <Property Name="ExtraFieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProtocolID" Type="Int32" Nullable="false" />
+          <Property Name="ExtraFieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Protocols" Relationship="Self.FK_ProtocolExtraTextField_Protocols" FromRole="ProtocolExtraTextField" ToRole="Protocols" />
+        </EntityType>
+        <EntityType Name="ProtocolExtraTimeStampField">
+          <Key>
+            <PropertyRef Name="ExtraFielsID" />
+          </Key>
+          <Property Name="ExtraFielsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProtocolID" Type="Int32" Nullable="false" />
+          <Property Name="ExtraFieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Protocols" Relationship="Self.FK_ProtocolExtraTimeStampField_Protocols" FromRole="ProtocolExtraTimeStampField" ToRole="Protocols" />
+        </EntityType>
         <EntityType Name="Protocols">
           <Key>
             <PropertyRef Name="ID" />
@@ -532,6 +640,9 @@
           <Property Name="Finished" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Day" Relationship="Self.FK_Protocols_Day" FromRole="Protocols" ToRole="Day" />
           <NavigationProperty Name="ProtocolAndUser" Relationship="Self.FK_ProtocolAndUser_Protocols" FromRole="Protocols" ToRole="ProtocolAndUser" />
+          <NavigationProperty Name="ProtocolExtraDateField" Relationship="Self.FK_ProtocolExtraDateField_Protocols" FromRole="Protocols" ToRole="ProtocolExtraDateField" />
+          <NavigationProperty Name="ProtocolExtraTextField" Relationship="Self.FK_ProtocolExtraTextField_Protocols" FromRole="Protocols" ToRole="ProtocolExtraTextField" />
+          <NavigationProperty Name="ProtocolExtraTimeStampField" Relationship="Self.FK_ProtocolExtraTimeStampField_Protocols" FromRole="Protocols" ToRole="ProtocolExtraTimeStampField" />
           <NavigationProperty Name="UserRole" Relationship="Self.FK_Protocols_UserRole" FromRole="Protocols" ToRole="UserRole" />
         </EntityType>
         <EntityType Name="Region">
@@ -729,6 +840,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProtocolExtraDateField_Protocols">
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="ProtocolExtraDateField" Type="Self.ProtocolExtraDateField" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Protocols">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProtocolExtraDateField">
+              <PropertyRef Name="ProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProtocolExtraTextField_Protocols">
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="ProtocolExtraTextField" Type="Self.ProtocolExtraTextField" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Protocols">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProtocolExtraTextField">
+              <PropertyRef Name="ProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProtocolExtraTimeStampField_Protocols">
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="ProtocolExtraTimeStampField" Type="Self.ProtocolExtraTimeStampField" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Protocols">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProtocolExtraTimeStampField">
+              <PropertyRef Name="ProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Protocols_UserRole">
           <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
           <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
@@ -805,13 +952,16 @@
           <End Role="Expert" Type="Self.Expert" Multiplicity="*" />
           <End Role="ExpertRole" Type="Self.ExpertRole" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="CompetitionDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CompetitionDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Competition" EntityType="Self.Competition" />
           <EntitySet Name="Day" EntityType="Self.Day" />
           <EntitySet Name="Expert" EntityType="Self.Expert" />
           <EntitySet Name="ExpertRole" EntityType="Self.ExpertRole" />
           <EntitySet Name="Gender" EntityType="Self.Gender" />
           <EntitySet Name="ProtocolAndUser" EntityType="Self.ProtocolAndUser" />
+          <EntitySet Name="ProtocolExtraDateField" EntityType="Self.ProtocolExtraDateField" />
+          <EntitySet Name="ProtocolExtraTextField" EntityType="Self.ProtocolExtraTextField" />
+          <EntitySet Name="ProtocolExtraTimeStampField" EntityType="Self.ProtocolExtraTimeStampField" />
           <EntitySet Name="Protocols" EntityType="Self.Protocols" />
           <EntitySet Name="Region" EntityType="Self.Region" />
           <EntitySet Name="RegionDistrict" EntityType="Self.RegionDistrict" />
@@ -856,6 +1006,18 @@
             <End Role="User" EntitySet="User" />
             <End Role="ProtocolAndUser" EntitySet="ProtocolAndUser" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProtocolExtraDateField_Protocols" Association="Self.FK_ProtocolExtraDateField_Protocols">
+            <End Role="Protocols" EntitySet="Protocols" />
+            <End Role="ProtocolExtraDateField" EntitySet="ProtocolExtraDateField" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProtocolExtraTextField_Protocols" Association="Self.FK_ProtocolExtraTextField_Protocols">
+            <End Role="Protocols" EntitySet="Protocols" />
+            <End Role="ProtocolExtraTextField" EntitySet="ProtocolExtraTextField" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProtocolExtraTimeStampField_Protocols" Association="Self.FK_ProtocolExtraTimeStampField_Protocols">
+            <End Role="Protocols" EntitySet="Protocols" />
+            <End Role="ProtocolExtraTimeStampField" EntitySet="ProtocolExtraTimeStampField" />
+          </AssociationSet>
           <AssociationSet Name="FK_Protocols_UserRole" Association="Self.FK_Protocols_UserRole">
             <End Role="UserRole" EntitySet="UserRole" />
             <End Role="Protocols" EntitySet="Protocols" />
@@ -890,7 +1052,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище CompetitionDBModelContainer" CdmEntityContainer="CompetitionDBEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CompetitionDBModelContainer" CdmEntityContainer="CompetitionDBEntities1">
           <EntitySetMapping Name="Competition">
             <EntityTypeMapping TypeName="CompetitionDBModel.Competition">
               <MappingFragment StoreEntitySet="Competition">
@@ -950,6 +1112,36 @@
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="Signed" ColumnName="Signed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProtocolExtraDateField">
+            <EntityTypeMapping TypeName="CompetitionDBModel.ProtocolExtraDateField">
+              <MappingFragment StoreEntitySet="ProtocolExtraDateField">
+                <ScalarProperty Name="ExtraFieldID" ColumnName="ExtraFieldID" />
+                <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
+                <ScalarProperty Name="ExtraFieldName" ColumnName="ExtraFieldName" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProtocolExtraTextField">
+            <EntityTypeMapping TypeName="CompetitionDBModel.ProtocolExtraTextField">
+              <MappingFragment StoreEntitySet="ProtocolExtraTextField">
+                <ScalarProperty Name="ExtraFieldID" ColumnName="ExtraFieldID" />
+                <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
+                <ScalarProperty Name="ExtraFieldName" ColumnName="ExtraFieldName" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProtocolExtraTimeStampField">
+            <EntityTypeMapping TypeName="CompetitionDBModel.ProtocolExtraTimeStampField">
+              <MappingFragment StoreEntitySet="ProtocolExtraTimeStampField">
+                <ScalarProperty Name="ExtraFielsID" ColumnName="ExtraFielsID" />
+                <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
+                <ScalarProperty Name="ExtraFieldName" ColumnName="ExtraFieldName" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -29,8 +29,11 @@ namespace CompetitionApp.Pages.OrgPages
             InitializeComponent();
 
             if (expertRole != null)
+            {
                 currentRole = expertRole;
-
+                TextTitle.Text = "Редактировать роль для эксперта";
+            }
+               
             DataContext = currentRole;
         }
 

@@ -86,3 +86,7 @@ C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertProtocolRe
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Expert\ExpertProtocolFormView.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\View\Expert\ExpertProtocolReportView.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\CompetitionApp.csprojAssemblyReference.cache
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgAddProtocolFieldPage.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgAddProtocolFieldPage.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgAddProtocolColumnPage.g.cs
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgAddProtocolColumnPage.baml

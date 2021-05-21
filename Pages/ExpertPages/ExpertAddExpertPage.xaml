@@ -23,7 +23,7 @@
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center">
 
-            <TextBlock Text="Добавление эксперта"
+            <TextBlock Text="Добавить эксперта"
                        Style="{StaticResource H1}"
                        x:Name="TextTitle"/>
 
@@ -67,7 +67,7 @@
                 <ComboBox Width="300"
                           x:Name="ComboCompetitor"
                           SelectedItem="{Binding Expert1.User}"
-                          DisplayMemberPath="FullName"/>
+                          DisplayMemberPath="ShortName"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal"

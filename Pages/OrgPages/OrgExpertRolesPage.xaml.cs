@@ -65,5 +65,10 @@ namespace CompetitionApp.Pages.OrgPages
         {
             Navigation.SubFrame.Navigate(new OrgViewExpertRolePage((sender as Button).DataContext as ExpertRole));
         }
+
+        private void DGridExperts_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = $" {e.Row.GetIndex() + 1} ";
+        }
     }
 }

@@ -54,11 +54,10 @@
         <DataGrid x:Name="DGridUsers"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
-                  Grid.Row="1">
+                  Grid.Row="1"
+                  LoadingRow="DGridUsers_LoadingRow">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№"
-                                    />
                 <DataGridTextColumn Header="Фамилия"
                                     Binding="{Binding Surname}"
                                     Width="*"/>

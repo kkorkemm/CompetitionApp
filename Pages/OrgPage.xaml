@@ -30,7 +30,15 @@
             
         </Grid>
 
-        <Image x:Name="Logo"/>
+        <Image x:Name="Logo">
+            <Image.Source>
+                <Binding Path="Logo">
+                    <Binding.TargetNullValue>
+                        /Logos/wsrlogo-02.png
+                    </Binding.TargetNullValue>
+                </Binding>
+            </Image.Source>
+        </Image>
 
         <Grid Grid.Column="1"
               VerticalAlignment="Center">

@@ -18,11 +18,10 @@
         <DataGrid x:Name="DGridUsers"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
-                  Margin="0 0 0 20">
+                  Margin="0 0 0 20"
+                  LoadingRow="DGridUsers_LoadingRow">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№"
-                                    />
                 <DataGridTextColumn Header="Фамилия"
                                     Binding="{Binding Surname}"
                                     Width="*"/>
@@ -33,7 +32,7 @@
                                     Binding="{Binding LastName}"
                                     Width="*"/>
                 <DataGridTextColumn Header="ФИО участника"
-                                    Binding="{Binding Expert1.User.FullName}"
+                                    Binding="{Binding Expert1.User.ShortName}"
                                     Width="*"/>
                 <DataGridTextColumn Header="Статус подтверждения"
                                     Binding="{Binding Status}"/>

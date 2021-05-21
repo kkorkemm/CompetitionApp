@@ -14,6 +14,15 @@ namespace CompetitionApp.ViewModel
     class MainVM : INotify
     {
 
+        private byte[] logo = CompetitionDBEntities.currentCompettion.Logo;
+
+        public byte[] Logo
+        {
+            get { return logo; }
+            set { logo = value; }
+        }
+
+
         private object currentView;
         public object CurrentView
         {

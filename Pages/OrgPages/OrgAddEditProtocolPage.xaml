@@ -25,9 +25,12 @@
                     HorizontalAlignment="Center">
             
             <TextBlock Text="Добавить протокол"
-                       Style="{StaticResource H1}"/>
+                       Style="{StaticResource H1}"
+                       x:Name="TextTitle"/>
 
-            <StackPanel Margin="0 0 0 20">
+            <StackPanel Margin="0 0 0 20"
+                        x:Name="StackPanelAdded">
+                
                 <StackPanel Orientation="Horizontal"
                             Margin="0 0 0 10">
                     <TextBlock Text="Наименование: "/>
@@ -49,18 +52,14 @@
                               DisplayMemberPath="RoleName"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal"
+                            Margin="0 0 0 10">
                     <TextBlock Text="День чемпионата: "/>
                     <ComboBox x:Name="ComboDays"
                               Width="300"
                               DisplayMemberPath="DayName"
                               SelectedItem="{Binding Day}"/>
                 </StackPanel>
-                
-                <CheckBox Content="Использовать на этом чемпионате"
-                      Margin="0 10 0 0"
-                      HorizontalAlignment="Center"
-                      IsChecked="{Binding Active}"/>
                 
             </StackPanel>
 

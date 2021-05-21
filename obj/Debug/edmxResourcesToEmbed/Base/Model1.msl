@@ -162,5 +162,35 @@
         <ScalarProperty Name="ID" ColumnName="ExpertRoleID" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="ProtocolExtraDateField">
+      <EntityTypeMapping TypeName="CompetitionDBModel.ProtocolExtraDateField">
+        <MappingFragment StoreEntitySet="ProtocolExtraDateField">
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ExtraFieldName" ColumnName="ExtraFieldName" />
+          <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
+          <ScalarProperty Name="ExtraFieldID" ColumnName="ExtraFieldID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProtocolExtraTextField">
+      <EntityTypeMapping TypeName="CompetitionDBModel.ProtocolExtraTextField">
+        <MappingFragment StoreEntitySet="ProtocolExtraTextField">
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ExtraFieldName" ColumnName="ExtraFieldName" />
+          <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
+          <ScalarProperty Name="ExtraFieldID" ColumnName="ExtraFieldID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProtocolExtraTimeStampField">
+      <EntityTypeMapping TypeName="CompetitionDBModel.ProtocolExtraTimeStampField">
+        <MappingFragment StoreEntitySet="ProtocolExtraTimeStampField">
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ExtraFieldName" ColumnName="ExtraFieldName" />
+          <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
+          <ScalarProperty Name="ExtraFielsID" ColumnName="ExtraFielsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
