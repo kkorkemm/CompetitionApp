@@ -71,15 +71,6 @@
                 <viewOrgReport:OrgDetailedReportView/>
             </DataTemplate>
 
-            <!--ПРОТОКОЛЫ ЭКСПЕРТ-->
-            <DataTemplate DataType="{x:Type viewModelExpertProtocol:ExpertProtocolFormViewModel}">
-                <viewExpertProtocol:ExpertProtocolFormView/>
-            </DataTemplate>
-
-            <DataTemplate DataType="{x:Type viewModelExpertProtocol:ExpertProtocolReportViewModel}">
-                <viewExpertProtocol:ExpertProtocolReportView/>
-            </DataTemplate>
-            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -25,7 +25,7 @@ namespace CompetitionApp.Base
 
         public string IsActive => Active ? "Да" : "Нет";
 
-        public int ID { get; set; }
+        public int ProtocolID { get; set; }
         public string ProtocolName { get; set; }
         public string Content { get; set; }
         public short UserRoleID { get; set; }

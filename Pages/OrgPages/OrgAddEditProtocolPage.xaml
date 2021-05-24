@@ -12,6 +12,9 @@
         <Style TargetType="TextBox">
             <Setter Property="Width" Value="300"/>
         </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="Width" Value="300"/>
+        </Style>
         <Style TargetType="TextBlock">
             <Setter Property="Width" Value="150"/>
             <Setter Property="TextWrapping" Value="Wrap"/>

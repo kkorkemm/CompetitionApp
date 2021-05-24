@@ -47,12 +47,67 @@ namespace CompetitionApp.Pages.OrgPages
                     };
                     TextBlock textBlock = new TextBlock()
                     {
-                        Text = text.ExtraFieldName
+                        Text = text.ExtraFieldName + ":"
                     };
                     TextBox textBox = new TextBox()
                     {
                         Text = text.Content
                     };
+                    stackPanel.Children.Add(textBlock);
+                    stackPanel.Children.Add(textBox);
+
+                    StackPanelAdded.Children.Add(stackPanel);
+                }
+            }
+
+            if (currentProtocol.ProtocolExtraDateField.Count > 0)
+            {
+                var dateList = currentProtocol.ProtocolExtraDateField.ToList();
+                foreach (var date in dateList)
+                {
+                    StackPanel stackPanel = new StackPanel()
+                    {
+                        Orientation = Orientation.Horizontal,
+                        Margin = new Thickness(0, 0, 0, 10)
+                    };
+                    TextBlock textBox = new TextBlock()
+                    {
+                        Text = date.ExtraFieldName + ":"
+                    };
+                    DatePicker datePicker = new DatePicker()
+                    {
+                        SelectedDate = date.Content
+                    };
+
+                    stackPanel.Children.Add(textBox);
+                    stackPanel.Children.Add(datePicker);
+
+                    StackPanelAdded.Children.Add(stackPanel);
+                }
+            }
+
+            if (currentProtocol.ProtocolExtraTimeStampField.Count > 0)
+            {
+                var timeList = currentProtocol.ProtocolExtraTimeStampField.ToList();
+                foreach (var time in timeList)
+                {
+                    StackPanel stackPanel = new StackPanel()
+                    {
+                        Orientation = Orientation.Horizontal,
+                        Margin = new Thickness(0, 0, 0, 10)
+                    };
+
+                    TextBlock textBlock = new TextBlock()
+                    {
+                        Text = time.ExtraFieldName + ":"
+                    };
+
+                    TimeSpan timeSpan = new TimeSpan();
+                    TextBox textBox = new TextBox()
+                    {
+                        Text = timeSpan.ToString()
+                    };
+
                     stackPanel.Children.Add(textBlock);
                     stackPanel.Children.Add(textBox);
 
@@ -79,10 +134,22 @@ namespace CompetitionApp.Pages.OrgPages
             }
             else
             {
-                if (currentProtocol.ID == 0)
+                if (currentProtocol.ProtocolID == 0)
                 {
                     currentProtocol.Finished = false;
                     CompetitionDBEntities.GetContext().Protocols.Add(currentProtocol);
+
+                    var users = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID && p.UserRoleID == currentProtocol.UserRoleID).ToList();
+
+                    foreach(var user in users)
+                    {
+                        ProtocolAndUser protocolAndUser = new ProtocolAndUser()
+                        {
+                            ProtocolID = currentProtocol.ProtocolID,
+                            UserID = user.ID
+                        };
+                        CompetitionDBEntities.GetContext().ProtocolAndUser.Add(protocolAndUser);
+                    }
                 }
 
                 try

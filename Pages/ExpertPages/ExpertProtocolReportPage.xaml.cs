@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 
 namespace CompetitionApp.Pages.ExpertPages
 {
+    using Base;
+
     /// <summary>
     /// Логика взаимодействия для ExpertProtocolReportPage.xaml
     /// </summary>
@@ -23,6 +25,23 @@ namespace CompetitionApp.Pages.ExpertPages
         public ExpertProtocolReportPage()
         {
             InitializeComponent();
+
+            ComboProtocols.ItemsSource = CompetitionDBEntities.GetContext().Protocols.Where(p => p.Day.CompetitionID == CompetitionDBEntities.currentCompettion.ID).ToList();
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.SubFrame.Navigate(new ExpertProtocolPage());
+        }
+
+        void UpdateProtocols()
+        {
+
+        }
+
+        private void ComboProtocols_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

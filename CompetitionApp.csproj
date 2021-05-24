@@ -142,6 +142,9 @@
     <Compile Include="Pages\ExpertPages\ExpertProtocolFormPage.xaml.cs">
       <DependentUpon>ExpertProtocolFormPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ExpertPages\ExpertProtocolPage.xaml.cs">
+      <DependentUpon>ExpertProtocolPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ExpertPages\ExpertProtocolReportPage.xaml.cs">
       <DependentUpon>ExpertProtocolReportPage.xaml</DependentUpon>
     </Compile>
@@ -188,8 +191,6 @@
       <DependentUpon>OrgViewExpertRolePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Expert\ExpertExpertsViewModel.cs" />
-    <Compile Include="ViewModel\Expert\ExpertProtocolFormViewModel.cs" />
-    <Compile Include="ViewModel\Expert\ExpertProtocolReportViewModel.cs" />
     <Compile Include="ViewModel\Expert\ExpertProtocolsViewModel.cs" />
     <Compile Include="ViewModel\Expert\ExpertUsersViewModel.cs" />
     <Compile Include="ViewModel\MainVM.cs" />
@@ -204,12 +205,6 @@
     <Compile Include="ViewModel\Org\OrgUserViewModel.cs" />
     <Compile Include="View\Expert\ExpertExpertsView.xaml.cs">
       <DependentUpon>ExpertExpertsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Expert\ExpertProtocolFormView.xaml.cs">
-      <DependentUpon>ExpertProtocolFormView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Expert\ExpertProtocolReportView.xaml.cs">
-      <DependentUpon>ExpertProtocolReportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Expert\ExpertProtocolsView.xaml.cs">
       <DependentUpon>ExpertProtocolsView.xaml</DependentUpon>
@@ -273,6 +268,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ExpertPages\ExpertProtocolFormPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ExpertPages\ExpertProtocolPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -353,14 +352,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Expert\ExpertExpertsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Expert\ExpertProtocolFormView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Expert\ExpertProtocolReportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

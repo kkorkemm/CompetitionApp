@@ -29,7 +29,7 @@ namespace CompetitionApp.Pages
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BtnExit_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult question = MessageBox.Show("Вы точно хотите выйти из системы?", "Внимание!", MessageBoxButton.YesNo, MessageBoxImage.Question);
 

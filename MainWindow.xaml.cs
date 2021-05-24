@@ -18,6 +18,7 @@ namespace CompetitionApp
         {
             try
             {
+                
                 Day newDay = new Day
                 {
                     CompetitionID = CompetitionDBEntities.currentCompettion.ID,
@@ -61,8 +62,6 @@ namespace CompetitionApp
 
             else
             {
-                MessageBox.Show($"Следующий чемпионат: {CompetitionDBEntities.currentCompettion.CompetitionName}");
-
                 if (CompetitionDBEntities.currentCompettion.Day.Count == 0)
                 {
                     TimeSpan prevDays = CompetitionDBEntities.currentCompettion.BeginDate.AddDays(2) - DateTime.Now;

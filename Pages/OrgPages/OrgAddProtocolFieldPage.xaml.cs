@@ -75,7 +75,7 @@ namespace CompetitionApp.Pages.OrgPages
                 {
                     ProtocolExtraTextField textField = new ProtocolExtraTextField
                     {
-                        ProtocolID = currentProtocol.ID,
+                        ProtocolID = currentProtocol.ProtocolID,
                         ExtraFieldName = TextName.Text,
                         Content = (GridAdded.Children.Count - 1).ToString()
                     };
@@ -88,7 +88,7 @@ namespace CompetitionApp.Pages.OrgPages
                 {
                     ProtocolExtraTimeStampField timeStampField = new ProtocolExtraTimeStampField
                     {
-                        ProtocolID = currentProtocol.ID,
+                        ProtocolID = currentProtocol.ProtocolID,
                         ExtraFieldName = TextName.Text
                     };
 
@@ -100,7 +100,7 @@ namespace CompetitionApp.Pages.OrgPages
                 {
                     ProtocolExtraDateField dateField = new ProtocolExtraDateField
                     {
-                        ProtocolID = currentProtocol.ID,
+                        ProtocolID = currentProtocol.ProtocolID,
                         ExtraFieldName = TextName.Text
                     };
 

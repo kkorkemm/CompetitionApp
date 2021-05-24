@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CompetitionApp
 {
@@ -54,15 +52,14 @@ namespace CompetitionApp
                 }
             }
 
-            CompetitionDBEntities.currentDay = CompetitionDBEntities.GetContext().Day.Where(p => p.DayName == day).FirstOrDefault();
+            CompetitionDBEntities.currentDay = CompetitionDBEntities.GetContext().Day.Where(p => p.DayName == day && p.CompetitionID == CompetitionDBEntities.currentCompettion.ID).FirstOrDefault();
 
             return day;
         }
 
-
+        public static Random random = new Random();
         public static string GetRandomCode(string alphabet, int length)
-        {
-            Random random = new Random();
+        { 
             StringBuilder code = new StringBuilder();
             for (int i = 0; i < length; i++) 
             {

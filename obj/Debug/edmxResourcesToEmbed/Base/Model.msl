@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище CompetitionDBModelContainer" CdmEntityContainer="CompetitionDBEntities1">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CompetitionDBModelContainer" CdmEntityContainer="CompetitionDBEntities2">
     <EntitySetMapping Name="Competition">
       <EntityTypeMapping TypeName="CompetitionDBModel.Competition">
         <MappingFragment StoreEntitySet="Competition">
@@ -96,7 +96,7 @@
     <EntitySetMapping Name="Protocols">
       <EntityTypeMapping TypeName="CompetitionDBModel.Protocols">
         <MappingFragment StoreEntitySet="Protocols">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
           <ScalarProperty Name="ProtocolName" ColumnName="ProtocolName" />
           <ScalarProperty Name="Content" ColumnName="Content" />
           <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />

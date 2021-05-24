@@ -16,7 +16,7 @@ namespace CompetitionApp.Base
     public partial class CompetitionDBEntities : DbContext
     {
         public CompetitionDBEntities()
-            : base("name=CompetitionDBEntities1")
+            : base("name=CompetitionDBEntities2")
         {
         }
 

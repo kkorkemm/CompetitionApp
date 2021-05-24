@@ -98,9 +98,9 @@
         </EntityType>
         <EntityType Name="Protocols">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ProtocolID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProtocolID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProtocolName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Content" Type="nvarchar(max)" />
           <Property Name="UserRoleID" Type="smallint" Nullable="false" />
@@ -256,11 +256,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProtocolAndUser_Protocols">
-          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProtocolAndUser" Type="Self.ProtocolAndUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Protocols">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="ProtocolID" />
             </Principal>
             <Dependent Role="ProtocolAndUser">
               <PropertyRef Name="ProtocolID" />
@@ -268,7 +270,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProtocolAndUser_User">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProtocolAndUser" Type="Self.ProtocolAndUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
@@ -280,11 +284,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProtocolExtraDateField_Protocols">
-          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProtocolExtraDateField" Type="Self.ProtocolExtraDateField" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Protocols">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="ProtocolID" />
             </Principal>
             <Dependent Role="ProtocolExtraDateField">
               <PropertyRef Name="ProtocolID" />
@@ -292,11 +298,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProtocolExtraTextField_Protocols">
-          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProtocolExtraTextField" Type="Self.ProtocolExtraTextField" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Protocols">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="ProtocolID" />
             </Principal>
             <Dependent Role="ProtocolExtraTextField">
               <PropertyRef Name="ProtocolID" />
@@ -304,11 +312,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProtocolExtraTimeStampField_Protocols">
-          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProtocolExtraTimeStampField" Type="Self.ProtocolExtraTimeStampField" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Protocols">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="ProtocolID" />
             </Principal>
             <Dependent Role="ProtocolExtraTimeStampField">
               <PropertyRef Name="ProtocolID" />
@@ -629,9 +639,9 @@
         </EntityType>
         <EntityType Name="Protocols">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ProtocolID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProtocolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProtocolName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UserRoleID" Type="Int16" Nullable="false" />
@@ -817,11 +827,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProtocolAndUser_Protocols">
-          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProtocolAndUser" Type="Self.ProtocolAndUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Protocols">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="ProtocolID" />
             </Principal>
             <Dependent Role="ProtocolAndUser">
               <PropertyRef Name="ProtocolID" />
@@ -829,7 +841,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProtocolAndUser_User">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProtocolAndUser" Type="Self.ProtocolAndUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
@@ -841,11 +855,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProtocolExtraDateField_Protocols">
-          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProtocolExtraDateField" Type="Self.ProtocolExtraDateField" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Protocols">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="ProtocolID" />
             </Principal>
             <Dependent Role="ProtocolExtraDateField">
               <PropertyRef Name="ProtocolID" />
@@ -853,11 +869,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProtocolExtraTextField_Protocols">
-          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProtocolExtraTextField" Type="Self.ProtocolExtraTextField" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Protocols">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="ProtocolID" />
             </Principal>
             <Dependent Role="ProtocolExtraTextField">
               <PropertyRef Name="ProtocolID" />
@@ -865,11 +883,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProtocolExtraTimeStampField_Protocols">
-          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ProtocolExtraTimeStampField" Type="Self.ProtocolExtraTimeStampField" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Protocols">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="ProtocolID" />
             </Principal>
             <Dependent Role="ProtocolExtraTimeStampField">
               <PropertyRef Name="ProtocolID" />
@@ -952,7 +972,7 @@
           <End Role="Expert" Type="Self.Expert" Multiplicity="*" />
           <End Role="ExpertRole" Type="Self.ExpertRole" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="CompetitionDBEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CompetitionDBEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Competition" EntityType="Self.Competition" />
           <EntitySet Name="Day" EntityType="Self.Day" />
           <EntitySet Name="Expert" EntityType="Self.Expert" />
@@ -1052,7 +1072,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище CompetitionDBModelContainer" CdmEntityContainer="CompetitionDBEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CompetitionDBModelContainer" CdmEntityContainer="CompetitionDBEntities2">
           <EntitySetMapping Name="Competition">
             <EntityTypeMapping TypeName="CompetitionDBModel.Competition">
               <MappingFragment StoreEntitySet="Competition">
@@ -1148,7 +1168,7 @@
           <EntitySetMapping Name="Protocols">
             <EntityTypeMapping TypeName="CompetitionDBModel.Protocols">
               <MappingFragment StoreEntitySet="Protocols">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
                 <ScalarProperty Name="ProtocolName" ColumnName="ProtocolName" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
