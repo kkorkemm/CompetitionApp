@@ -33,7 +33,7 @@ namespace CompetitionApp.Pages.ExpertPages
 
         private void ListProtocols_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            var item = ItemsControl.ContainerFromElement(ListProtocols, e.OriginalSource as DependencyObject) as ListBoxItem;
+            ListBoxItem item = ItemsControl.ContainerFromElement(ListProtocols, e.OriginalSource as DependencyObject) as ListBoxItem;
 
             if (item != null)
             {

@@ -9,6 +9,49 @@
       Title="OrgDetailedReportPage">
 
     <Grid>
-        <TextBlock Text="Детальный отчет по протоколаммм"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Orientation="Horizontal"
+                   HorizontalAlignment="Center"
+                   Margin="10">
+            <TextBlock Text="Компетенция: "
+                       Width="150"
+                       VerticalAlignment="Center"/>
+            <ComboBox x:Name="ComboSkills"
+                      Width="200"
+                      DisplayMemberPath="SkillName"
+                      SelectionChanged="ComboSkills_SelectionChanged"/>
+        </WrapPanel>
+
+        <ListView x:Name="ListProtocols"
+                  Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding ProtocolName}"
+                                   Margin="0 0 20 0"/>
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"
+                                       FontWeight="SemiBold"
+                                       FontSize="16"
+                                       Margin="10"/>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
+            
+        </ListView>
+        
     </Grid>
 </Page>

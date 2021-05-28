@@ -1,0 +1,121 @@
+﻿<Page x:Class="CompetitionApp.Pages.CompetitiorPages.CompetitorMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CompetitionApp.Pages.CompetitiorPages"
+      xmlns:viewModel="clr-namespace:CompetitionApp.ViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CompetitorMainPage">
+
+    <Page.DataContext>
+        <viewModel:MainVM/>
+    </Page.DataContext>
+
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="#FF1D2D75"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.ColumnSpan="2"
+              Background="#FF17479E">
+
+        </Grid>
+
+        <Image x:Name="Logo">
+            <Image.Source>
+                <Binding Path="Logo">
+                    <Binding.TargetNullValue>
+                        Logos/wsrlogo-02.png
+                    </Binding.TargetNullValue>
+                </Binding>
+            </Image.Source>
+        </Image>
+
+        <Grid Grid.Column="1"
+              VerticalAlignment="Center">
+            <StackPanel Margin="15 0 0 0"
+                        HorizontalAlignment="Left">
+                <TextBlock x:Name="TextCompName" 
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Margin="0 0 0 5"
+                           HorizontalAlignment="Left"/>
+                <TextBlock x:Name="TextSkillName" 
+                           Text="Компетенция: "
+                           FontSize="14"
+                           Foreground="White"/>
+            </StackPanel>
+
+            <Button x:Name="BtnExit"
+                    Content="Выход"
+                    Click="BtnExit_Click"
+                    HorizontalAlignment="Right"
+                    Width="150"
+                    Height="30"
+                    Style="{StaticResource BtnRed}"
+                    Margin="0 0 15 0"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1"  
+                    Background="#FFD1D3D4">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Margin="0 20 0 20">
+                <TextBlock x:Name="TextHello"
+                           Margin="0 0 0 5"
+                           FontWeight="SemiBold"/>
+                <TextBlock x:Name="TextDay"
+                           FontWeight="SemiBold"
+                           Grid.Row="1"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Список участников"
+                             FontSize="14"
+                             Foreground="#FF1D2D75"
+                             Height="60"
+                             Style="{StaticResource MenuButton}"
+                             IsChecked="True"
+                             Command="{Binding CompetitorUsersCommand}"/>
+
+                <RadioButton Content="Список протоколов"
+                             FontSize="14"
+                             Foreground="#FF1D2D75"
+                             Height="60"
+                             Style="{StaticResource MenuButton}"
+                             Command="{Binding CompetitorProtocolsCommand}"/>
+            </StackPanel>
+
+        </Grid>
+
+        <ContentControl Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="15"
+                        Content="{Binding CurrentView}"/>
+        
+    </Grid>
+</Page>

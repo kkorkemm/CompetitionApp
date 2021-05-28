@@ -95,6 +95,11 @@ namespace CompetitionApp
 
                     CompetitionDBEntities.currentUser = user;
 
+                    if (user.UserRoleID == 1)
+                    {
+                        mainFrame.Navigate(new CompetitorPage());
+                    }
+
                     if (user.UserRoleID == 3)
                     {
                         mainFrame.Navigate(new ExpertPage());

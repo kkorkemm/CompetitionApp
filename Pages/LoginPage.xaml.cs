@@ -69,6 +69,11 @@ namespace CompetitionApp.Pages
 
                                 }
 
+                                if (user.UserRoleID == 1)
+                                {
+                                    Navigation.MainFrame.Navigate(new CompetitorPage());
+                                }
+
                                 if (user.UserRoleID == 3)
                                 {
                                     Navigation.MainFrame.Navigate(new ExpertPage());

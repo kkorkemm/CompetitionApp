@@ -10,10 +10,12 @@
 namespace CompetitionApp.Base
 {
     using System;
+    using System.Linq;
     using System.Collections.Generic;
     
     public partial class ProtocolAndUser
     {
+        public string IsSigned => Signed ? "Подписано" : "Не подписано";
         public int ID { get; set; }
         public int ProtocolID { get; set; }
         public int UserID { get; set; }

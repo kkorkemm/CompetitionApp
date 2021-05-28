@@ -130,6 +130,24 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
+    <Compile Include="Pages\CompetitiorPages\CompetitorMainPage.xaml.cs">
+      <DependentUpon>CompetitorMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CompetitiorPages\CompetitorProtocolInfoPage.xaml.cs">
+      <DependentUpon>CompetitorProtocolInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CompetitiorPages\CompetitorProtocolsPage.xaml.cs">
+      <DependentUpon>CompetitorProtocolsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CompetitiorPages\CompetitorUsersPage.xaml.cs">
+      <DependentUpon>CompetitorUsersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CompetitiorPages\CompetitorUsersProtocolsPage.xaml.cs">
+      <DependentUpon>CompetitorUsersProtocolsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CompetitorPage.xaml.cs">
+      <DependentUpon>CompetitorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ExpertPages\ExpertAddExpertPage.xaml.cs">
       <DependentUpon>ExpertAddExpertPage.xaml</DependentUpon>
     </Compile>
@@ -172,6 +190,9 @@
     <Compile Include="Pages\OrgPages\OrgExpertRolesPage.xaml.cs">
       <DependentUpon>OrgExpertRolesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OrgPages\OrgMainExpertsPage.xaml.cs">
+      <DependentUpon>OrgMainExpertsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\OrgPages\OrgMainReportPage.xaml.cs">
       <DependentUpon>OrgMainReportPage.xaml</DependentUpon>
     </Compile>
@@ -190,6 +211,8 @@
     <Compile Include="Pages\OrgPages\OrgViewExpertRolePage.xaml.cs">
       <DependentUpon>OrgViewExpertRolePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Competitor\CompetitorProtocolsViewModel.cs" />
+    <Compile Include="ViewModel\Competitor\CompetitorUsersViewModel.cs" />
     <Compile Include="ViewModel\Expert\ExpertExpertsViewModel.cs" />
     <Compile Include="ViewModel\Expert\ExpertProtocolsViewModel.cs" />
     <Compile Include="ViewModel\Expert\ExpertUsersViewModel.cs" />
@@ -203,6 +226,12 @@
     <Compile Include="ViewModel\Org\OrgSettings\OrgSettingsExpertRolesViewModel.cs" />
     <Compile Include="ViewModel\Org\OrgSettings\OrgSettingsProtocolsViewModel.cs" />
     <Compile Include="ViewModel\Org\OrgUserViewModel.cs" />
+    <Compile Include="View\Competitor\CompetitiorUsersView.xaml.cs">
+      <DependentUpon>CompetitiorUsersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Competitor\CompetitorProtocolsView.xaml.cs">
+      <DependentUpon>CompetitorProtocolsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Expert\ExpertExpertsView.xaml.cs">
       <DependentUpon>ExpertExpertsView.xaml</DependentUpon>
     </Compile>
@@ -251,6 +280,30 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\CompetitiorPages\CompetitorMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CompetitiorPages\CompetitorProtocolInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CompetitiorPages\CompetitorProtocolsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CompetitiorPages\CompetitorUsersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CompetitiorPages\CompetitorUsersProtocolsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CompetitorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ExpertPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -315,6 +368,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\OrgPages\OrgMainExpertsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\OrgPages\OrgMainReportPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -348,6 +405,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\MenuStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Competitor\CompetitiorUsersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Competitor\CompetitorProtocolsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -489,5 +554,6 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

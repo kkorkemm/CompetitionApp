@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CompetitionApp.Pages.ExpertPages
 {
@@ -27,6 +16,8 @@ namespace CompetitionApp.Pages.ExpertPages
             InitializeComponent();
 
             ComboProtocols.ItemsSource = CompetitionDBEntities.GetContext().Protocols.Where(p => p.Day.CompetitionID == CompetitionDBEntities.currentCompettion.ID).ToList();
+
+            UpdateProtocols();
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -36,12 +27,36 @@ namespace CompetitionApp.Pages.ExpertPages
 
         void UpdateProtocols()
         {
+            var protocol = ComboProtocols.SelectedItem as Protocols;
+            var protocolList = CompetitionDBEntities.GetContext().ProtocolAndUser.Where(p => p.ProtocolID == protocol.ProtocolID && p.User.UserStatusID == 1).ToList();
+
+            DGridUsers.ItemsSource = protocolList;
+
+            int usersCount = protocolList.Count();
+            int signedCount = protocolList.Count(p => p.Signed == true);
+
+            string role = "";
+            if (protocol.UserRoleID == 1)
+                role = "участников";
+            else if (protocol.UserRoleID == 2)
+                role = "экспертов";
+
+            TextCount.Text = $"Протокол подписан {signedCount} из {usersCount} {role}";
+
+            if (signedCount != usersCount)
+            {
+                TextPin.IsEnabled = false;
+            }
+            else
+            {
+                TextPin.IsEnabled = true;
+            }
 
         }
 
         private void ComboProtocols_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            UpdateProtocols();
         }
     }
 }

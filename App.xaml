@@ -10,8 +10,8 @@
              xmlns:viewModelOrgSettings="clr-namespace:CompetitionApp.ViewModel.Org.OrgSettings"
              xmlns:viewModelOrgReport="clr-namespace:CompetitionApp.ViewModel.Org.OrgReport"
              xmlns:viewOrgReport="clr-namespace:CompetitionApp.View.Org.OrgReport"
-             xmlns:viewExpertProtocol="clr-namespace:CompetitionApp.View.Expert"
-             xmlns:viewModelExpertProtocol="clr-namespace:CompetitionApp.ViewModel.Expert"
+             xmlns:viewModelCompetitor="clr-namespace:CompetitionApp.ViewModel.Competitor"
+             xmlns:viewCompetitor="clr-namespace:CompetitionApp.View.Competitor"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
@@ -71,6 +71,14 @@
                 <viewOrgReport:OrgDetailedReportView/>
             </DataTemplate>
 
+            <!--УЧАСТНИК-->
+            <DataTemplate DataType="{x:Type viewModelCompetitor:CompetitorUsersViewModel}">
+                <viewCompetitor:CompetitiorUsersView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModelCompetitor:CompetitorProtocolsViewModel}">
+                <viewCompetitor:CompetitorProtocolsView/>
+            </DataTemplate>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

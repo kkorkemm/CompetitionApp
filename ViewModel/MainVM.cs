@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CompetitionApp.ViewModel
+﻿namespace CompetitionApp.ViewModel
 {
     using MVVMCore;
     using Expert;
     using Org;
+    using Competitor;
     using Base;
 
     class MainVM : INotify
@@ -55,6 +50,15 @@ namespace CompetitionApp.ViewModel
         public OrgSettingsViewModel OrgSettingVM { get; set; }
         public OrgReportViewModel OrgReportVM { get; set; }
 
+
+
+        /// УЧАСТНИК
+        public Command CompetitorUsersCommand { get; set; }
+        public Command CompetitorProtocolsCommand { get; set; }
+
+
+        public CompetitorUsersViewModel CompUsersVM { get; set; }
+        public CompetitorProtocolsViewModel CompProtocolsVM { get; set; }
 
         public MainVM()
         {
@@ -105,6 +109,21 @@ namespace CompetitionApp.ViewModel
                 CurrentView = OrgReportVM;
             });
 
+
+            /// УЧАСТНИК
+            CompUsersVM = new CompetitorUsersViewModel();
+            CompProtocolsVM = new CompetitorProtocolsViewModel();
+
+            CompetitorUsersCommand = new Command(o =>
+            {
+                CurrentView = CompUsersVM;
+            });
+            CompetitorProtocolsCommand = new Command(o =>
+            {
+                CurrentView = CompProtocolsVM;
+            });
+
+
             /// Что первое выводится
             if (CompetitionDBEntities.currentUser.UserRoleID == 3)
             {
@@ -114,6 +133,11 @@ namespace CompetitionApp.ViewModel
             {
                 CurrentView = OrgUserVM;
             }
+            if (CompetitionDBEntities.currentUser.UserRoleID == 1)
+            {
+                CurrentView = CompUsersVM;
+            }
+
         }
     }
 }

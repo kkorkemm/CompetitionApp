@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CompetitionApp.Pages.OrgPages
 {
+    using Base;
+
     /// <summary>
     /// Логика взаимодействия для OrgDetailedReportPage.xaml
     /// </summary>
@@ -23,6 +14,27 @@ namespace CompetitionApp.Pages.OrgPages
         public OrgDetailedReportPage()
         {
             InitializeComponent();
+
+            ComboSkills.ItemsSource = CompetitionDBEntities.GetContext().Skill.ToList();
+            ComboSkills.SelectedIndex = 0;
+
+            UpdateProtocols();
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListProtocols.ItemsSource);
+            PropertyGroupDescription groupDescription = new PropertyGroupDescription("Day.DayName");
+            view.GroupDescriptions.Add(groupDescription);
+        }
+
+        void UpdateProtocols()
+        {
+            var protocols = CompetitionDBEntities.GetContext().Protocols.Where(p => p.Day.CompetitionID == CompetitionDBEntities.currentCompettion.ID).ToList();
+
+            ListProtocols.ItemsSource = protocols;
+        }
+
+        private void ComboSkills_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateProtocols();
         }
     }
 }
