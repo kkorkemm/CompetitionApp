@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CompetitionApp.Pages.ExpertPages
 {
@@ -37,7 +28,6 @@ namespace CompetitionApp.Pages.ExpertPages
             DataContext = currentUser;
 
             ComboGender.ItemsSource = CompetitionDBEntities.GetContext().Gender.ToList();
-            ComboSkill.ItemsSource = CompetitionDBEntities.GetContext().Skill.ToList();
             ComboRegion.ItemsSource = CompetitionDBEntities.GetContext().Region.ToList();
         }
 
@@ -68,6 +58,7 @@ namespace CompetitionApp.Pages.ExpertPages
                     currentUser.PIN = Helper.GetRandomCode("1234567890", 5);
                     currentUser.UserRoleID = 1;
                     currentUser.UserStatusID = 2;
+                    currentUser.SkillID = CompetitionDBEntities.currentUser.SkillID;
 
                     CompetitionDBEntities.GetContext().User.Add(currentUser);
                 }

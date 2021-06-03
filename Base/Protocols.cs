@@ -21,17 +21,18 @@ namespace CompetitionApp.Base
             this.ProtocolExtraDateField = new HashSet<ProtocolExtraDateField>();
             this.ProtocolExtraTextField = new HashSet<ProtocolExtraTextField>();
             this.ProtocolExtraTimeStampField = new HashSet<ProtocolExtraTimeStampField>();
+            this.ProtocolFinished = new HashSet<ProtocolFinished>();
         }
 
-        public string IsActive => Active ? "Да" : "Нет";
+       
 
         public int ProtocolID { get; set; }
         public string ProtocolName { get; set; }
         public string Content { get; set; }
         public short UserRoleID { get; set; }
         public int DayID { get; set; }
-        public bool Active { get; set; }
-        public bool Finished { get; set; }
+        public Nullable<bool> Active { get; set; }
+        public Nullable<bool> Finished { get; set; }
     
         public virtual Day Day { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -43,5 +44,7 @@ namespace CompetitionApp.Base
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProtocolExtraTimeStampField> ProtocolExtraTimeStampField { get; set; }
         public virtual UserRole UserRole { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProtocolFinished> ProtocolFinished { get; set; }
     }
 }

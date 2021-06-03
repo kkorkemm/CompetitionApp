@@ -26,10 +26,9 @@ namespace CompetitionApp.Pages.ExpertPages
             }
 
             DataContext = currentUser;
-            ComboCompetitor.ItemsSource = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID && p.UserRoleID == 1).ToList();
+            ComboCompetitor.ItemsSource = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID && p.UserRoleID == 1 && p.SkillID == CompetitionDBEntities.currentUser.SkillID).ToList();
             ComboGender.ItemsSource = CompetitionDBEntities.GetContext().Gender.ToList();
             ComboRegion.ItemsSource = CompetitionDBEntities.GetContext().Region.ToList();
-            ComboSkill.ItemsSource = CompetitionDBEntities.GetContext().Skill.ToList();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -59,6 +58,7 @@ namespace CompetitionApp.Pages.ExpertPages
                     currentUser.PIN = Helper.GetRandomCode("1234567890", 5);
                     currentUser.UserRoleID = 2;
                     currentUser.UserStatusID = 2;
+                    currentUser.SkillID = CompetitionDBEntities.currentUser.SkillID;
 
                     CompetitionDBEntities.GetContext().User.Add(currentUser);
                 }
@@ -77,6 +77,11 @@ namespace CompetitionApp.Pages.ExpertPages
                         CompetitorID = competitor.ID
                     };
 
+                    if (currentUser.ID != 0)
+                    {
+                        currentUser.Expert1 = expert;
+                    }
+                    
                     if (expert.ExpertID == 0)
                         CompetitionDBEntities.GetContext().Expert.Add(expert);
                 }

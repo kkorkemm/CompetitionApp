@@ -13,15 +13,43 @@
             <RowDefinition Height="auto"/>
             <RowDefinition/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="StackPanelAdded">
+        <StackPanel>
             <TextBlock Text="{Binding ProtocolName}"
-                       FontSize="18"
+                       FontSize="20"
                        FontWeight="SemiBold"
                        TextAlignment="Center"
                        TextWrapping="Wrap"
-                       HorizontalAlignment="Center"/>
+                       HorizontalAlignment="Center"
+                       Margin="5"/>
+
+            <TextBlock Text="{Binding Content}"
+                       FontSize="16"
+                       TextAlignment="Justify"
+                       TextWrapping="Wrap"
+                       HorizontalAlignment="Center"
+                       Margin="5"/>
+
+            <TextBlock Text="ГЭ на площадке: "
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       HorizontalAlignment="Center"
+                       x:Name="TextMainExpertName"
+                       Margin="5"/>
+
+            <StackPanel x:Name="StackPanelAdded"
+                        HorizontalAlignment="Center">
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Margin" Value="0 0 20 5"/>
+                        <Setter Property="TextWrapping" Value="Wrap"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
+            
         </StackPanel>
 
         <DataGrid x:Name="DGridUsers"
@@ -34,9 +62,9 @@
                 <DataGridTextColumn Header="ФИО"
                                     Width="2*"
                                     Binding="{Binding User.FullName}"/>
-                <DataGridTextColumn Header="Дата рождения"
-                                    Width="*"
-                                    Binding="{Binding User.BirthDate, StringFormat=dd.MM.yyyy}"/>
+                <DataGridTextColumn Header="Комментарий участника"
+                                    Width="2*"
+                                    Binding="{Binding Comment}"/>
                 <DataGridTextColumn Header="PIN"
                                     Width="*"
                                     Binding="{Binding IsSigned}"/>
@@ -46,16 +74,31 @@
 
         <WrapPanel Grid.Row="2"
                    Orientation="Horizontal"
-                   HorizontalAlignment="Center">
+                   HorizontalAlignment="Center"
+                   Margin="10 10 20 10">
 
             <StackPanel Orientation="Horizontal"
-                        Margin="10 10 20 10">
+                        Margin="5">
+                <TextBlock Text="Оставить комментарий: "
+                           Margin="0 0 20 0"
+                           VerticalAlignment="Center"/>
+                
+                <TextBox x:Name="TextComment"
+                         Width="300"
+                         VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        Margin="5">
                 <TextBlock Text="Введите PIN-код: "
                            Margin="0 0 20 0"
                            VerticalAlignment="Center"/>
+                
                 <TextBox x:Name="TextPin"
                          Width="200"
-                         Margin="0 0 20 0"/>
+                         Margin="0 0 20 0"
+                         VerticalAlignment="Center"/>
+                
                 <Button x:Name="BtnPin"
                         Content="Подписать протокол"
                         Style="{StaticResource BtnYellow}"
@@ -63,14 +106,13 @@
                         Click="BtnPin_Click"/>
             </StackPanel>
 
-            <Button x:Name="BtnBack"
-                    Content="Назад"
-                    Style="{StaticResource BtnBlue}"
-                    Width="150"
-                    Margin="10"
-                    Click="BtnBack_Click"/>
-
         </WrapPanel>
 
+        <Button x:Name="BtnBack"
+                Content="Назад"
+                Style="{StaticResource BtnBlue}"
+                Click="BtnBack_Click"
+                Grid.Row="3"/>
+        
     </Grid>
 </Page>

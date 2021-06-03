@@ -16,12 +16,19 @@ namespace CompetitionApp.Pages.ExpertPages
         {
             InitializeComponent();
 
-            var users = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID && p.UserRoleID == 1);
+            var users = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID && p.UserRoleID == 1 && p.SkillID == CompetitionDBEntities.currentUser.SkillID);
 
             DGridUsers.ItemsSource = users.ToList();
 
-            if (users.Where(p => p.UserStatusID != 1).Count() > 0)
+            if (users.Count(p => p.UserStatusID != 1 && p.UserStatusID != 5) > 0)
             {
+                BtnFix.IsEnabled = false;
+            }
+
+            if (users.Count(p => p.UserStatusID == 5) == users.Count()) 
+            {
+                BtnAdd.IsEnabled = false;
+                BtnDelete.IsEnabled = false;
                 BtnFix.IsEnabled = false;
             }
         }
@@ -57,7 +64,7 @@ namespace CompetitionApp.Pages.ExpertPages
 
                         MessageBox.Show("Запрос на удаление данных был успешно отправлен! Ожидайте подтверждение от организатора", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                        DGridUsers.ItemsSource = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID && p.UserRoleID == 1).ToList();
+                        DGridUsers.ItemsSource = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID && p.UserRoleID == 1 && p.SkillID == CompetitionDBEntities.currentUser.SkillID).ToList();
 
                         BtnFix.IsEnabled = false;
                     }
@@ -75,7 +82,40 @@ namespace CompetitionApp.Pages.ExpertPages
 
         private void BtnFix_Click(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show("Вы действительно хотите зафиксировать список? После фиксации больше нельзя добавлять, редактировать и удалять участников", "Внимание!", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
+            if (result == MessageBoxResult.Yes)
+            {
+                var users = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID && p.UserRoleID == 1 && p.SkillID == CompetitionDBEntities.currentUser.SkillID);
+
+                try
+                {
+                    foreach (var user in users)
+                    {
+                        user.UserStatusID = 5;
+                    }
+
+                    var protocols = CompetitionDBEntities.GetContext().Protocols.Where(p => p.UserRoleID == 1 && p.Day.CompetitionID == CompetitionDBEntities.currentCompettion.ID).ToList();
+
+                    foreach (var protocol in protocols)
+                    {
+                        protocol.Active = true;
+                    }
+
+                    CompetitionDBEntities.GetContext().SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                MessageBox.Show("Список участников зафиксирован!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                DGridUsers.ItemsSource = users.ToList();
+                BtnAdd.IsEnabled = false;
+                BtnDelete.IsEnabled = false;
+                BtnFix.IsEnabled = false;               
+            }
         }
 
         private void DGridUsers_LoadingRow(object sender, DataGridRowEventArgs e)

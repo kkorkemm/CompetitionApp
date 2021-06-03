@@ -16,6 +16,9 @@ namespace CompetitionApp.Pages.CompetitiorPages
             InitializeComponent();
 
             DataContext = user;
+
+            var protocolFinished = CompetitionDBEntities.GetContext().ProtocolFinished.Where(p => p.Active == true).ToList();
+
             DGridProtocols.ItemsSource = user.ProtocolAndUser.Where(p => p.UserID == user.ID).ToList();
         }
 

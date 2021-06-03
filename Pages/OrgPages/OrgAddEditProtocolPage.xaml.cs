@@ -24,6 +24,11 @@ namespace CompetitionApp.Pages.OrgPages
                 currentProtocol = protocol;
                 TextTitle.Text = "Редактировать протокол";
             }
+            else
+            {
+                BtnAddColumn.IsEnabled = false;
+                BtnAddField.IsEnabled = false;
+            }
 
             DataContext = currentProtocol;
 

@@ -38,7 +38,7 @@ namespace CompetitionApp.Pages.OrgPages
             if (ComboSkill.SelectedIndex > 0)
                 currentUsers = currentUsers.Where(p => p.Skill == (ComboSkill.SelectedItem as Skill)).ToList();
             if (CheckStatus.IsChecked == true)
-                currentUsers = currentUsers.Where(p => p.UserStatusID != 1).ToList();
+                currentUsers = currentUsers.Where(p => p.UserStatusID != 1 && p.UserStatusID != 5).ToList();
 
             DGridUsers.ItemsSource = currentUsers.ToList();
 

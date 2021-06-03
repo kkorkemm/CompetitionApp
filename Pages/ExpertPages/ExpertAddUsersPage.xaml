@@ -60,16 +60,7 @@
                 <DatePicker Width="300"
                             SelectedDate="{Binding BirthDate}"/>
             </StackPanel>
-            
-            <StackPanel Orientation="Horizontal"
-                        Margin="0 0 0 10">
-                <TextBlock Text="Компетенция: "/>
-                <ComboBox Width="300"
-                          x:Name="ComboSkill"
-                          SelectedItem="{Binding Skill}"
-                          DisplayMemberPath="SkillName"/>
-            </StackPanel>
-            
+                        
             <StackPanel Orientation="Horizontal"
                         Margin="0 0 0 10">
                 <TextBlock Text="Регион: "/>

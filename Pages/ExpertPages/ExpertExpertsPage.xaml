@@ -42,7 +42,8 @@
                             <Button x:Name="BtnEdit"
                                     Content="Изменить"
                                     Click="BtnEdit_Click"
-                                    Style="{StaticResource BtnYellow}"/>
+                                    Style="{StaticResource BtnYellow}"
+                                    IsEnabled="{Binding IsFixed}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

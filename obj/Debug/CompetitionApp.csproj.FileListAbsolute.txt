@@ -87,7 +87,6 @@ C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertProtocolFo
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertProtocolReportPage.g.cs
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertProtocolFormPage.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\ExpertPages\ExpertProtocolReportPage.baml
-C:\C#\CompetitionApp\CompetitionApp\obj\Debug\CompetitionApp.csprojAssemblyReference.cache
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgMainExpertsPage.g.cs
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\OrgPages\OrgMainExpertsPage.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\CompetitorPage.g.cs
@@ -106,3 +105,4 @@ C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\CompetitiorPages\CompetitorU
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\CompetitiorPages\CompetitorUsersProtocolsPage.baml
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\CompetitiorPages\CompetitorProtocolInfoPage.g.cs
 C:\C#\CompetitionApp\CompetitionApp\obj\Debug\Pages\CompetitiorPages\CompetitorProtocolInfoPage.baml
+C:\C#\CompetitionApp\CompetitionApp\obj\Debug\CompetitionApp.csprojAssemblyReference.cache

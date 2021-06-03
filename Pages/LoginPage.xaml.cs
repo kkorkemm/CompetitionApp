@@ -37,71 +37,58 @@ namespace CompetitionApp.Pages
             }
             else
             {
-                var userName = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID).ToList();
+                var user = CompetitionDBEntities.GetContext().User.Where(p => p.Surname == TextLogin.Text && p.Password == TextPass.Password).FirstOrDefault();
 
-                if (userName.Count > 0)
+                if (user != null)
                 {
-                    foreach(var user in userName)
+                    if (user.CompetiotionID != CompetitionDBEntities.currentCompettion.ID)
                     {
-                        if (user.Surname == TextLogin.Text)
-                        {
-                            if (user.Password == TextPass.Password)
-                            {
-                                CompetitionDBEntities.currentUser = user;
-
-                                /// TODO: Запомнить меня
-                                if (CheckRemember.IsChecked == true)
-                                {
-                                    string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CompetitionApp";
-                                    Directory.CreateDirectory(folder);
-
-                                    try
-                                    {
-                                        using (StreamWriter sw = new StreamWriter(folder + @"\login.txt", false, Encoding.Default))
-                                        {
-                                            sw.WriteLine(user.Surname);
-                                        }
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        MessageBox.Show(ex.Message);
-                                    }
-
-                                }
-
-                                if (user.UserRoleID == 1)
-                                {
-                                    Navigation.MainFrame.Navigate(new CompetitorPage());
-                                }
-
-                                if (user.UserRoleID == 3)
-                                {
-                                    Navigation.MainFrame.Navigate(new ExpertPage());
-                                }
-
-                                if (user.UserRoleID == 6)
-                                {
-                                    Navigation.MainFrame.Navigate(new OrgPage());
-                                }
-                            }
-
-                            else
-                            {
-                                MessageBox.Show("Неверный пароль!");
-                                return;
-                            }
-                        }                
+                        MessageBox.Show("Вы не были зарегистрированы на текущий чемпионат", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
                     }
 
-                    if (CompetitionDBEntities.currentUser == null)
+                    CompetitionDBEntities.currentUser = user;
+
+                    /// TODO: Запомнить меня
+                    if (CheckRemember.IsChecked == true)
                     {
-                        MessageBox.Show($"Вы не были зарегистрированы на чемпионат {CompetitionDBEntities.currentCompettion.CompetitionName}");
+                        string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CompetitionApp";
+                        Directory.CreateDirectory(folder);
+
+                        try
+                        {
+                            using (StreamWriter sw = new StreamWriter(folder + @"\login.txt", false, Encoding.Default))
+                            {
+                                sw.WriteLine(user.ID);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+
+                    }
+
+                    if (user.UserRoleID == 1)
+                    {
+                        Navigation.MainFrame.Navigate(new CompetitorPage());
+                    }
+
+                    if (user.UserRoleID == 3)
+                    {
+                        Navigation.MainFrame.Navigate(new ExpertPage());
+                    }
+
+                    if (user.UserRoleID == 6)
+                    {
+                        Navigation.MainFrame.Navigate(new OrgPage());
                     }
                 }
 
                 else
                 {
-                    MessageBox.Show($"Пользователей, зарегистрированных на чемпионат {CompetitionDBEntities.currentCompettion.CompetitionName} нет");
+                    MessageBox.Show("Неверное соответствие логина и пароля", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
                 }
             }
         }

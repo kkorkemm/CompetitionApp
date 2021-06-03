@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CompetitionApp.Pages.ExpertPages
 {
@@ -26,15 +16,21 @@ namespace CompetitionApp.Pages.ExpertPages
         {
             InitializeComponent();
 
-            var users = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID && p.UserRoleID == 2);
-            int count = users.Where(p => p.UserStatusID != 1).Count();
+            var users = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID && p.UserRoleID == 2 && p.SkillID == CompetitionDBEntities.currentUser.SkillID);
 
-            if (count > 0)
+            DGridUsers.ItemsSource = users.ToList();
+
+            if (users.Count(p => p.UserStatusID != 1) > 0)
             {
                 BtnFix.IsEnabled = false;
             }
 
-            DGridUsers.ItemsSource = users.ToList();
+            if (users.Count(p => p.UserStatusID == 5) == users.Count())
+            {
+                BtnAdd.IsEnabled = false;
+                BtnDelete.IsEnabled = false;
+                BtnFix.IsEnabled = false;
+            }
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -74,7 +70,7 @@ namespace CompetitionApp.Pages.ExpertPages
 
                         MessageBox.Show("Запрос на удаление данных был успешно отправлен! Ожидайте подтверждение от организатора", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                        DGridUsers.ItemsSource = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID && p.UserRoleID == 2).ToList();
+                        DGridUsers.ItemsSource = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID && p.UserRoleID == 2 && p.SkillID == CompetitionDBEntities.currentUser.SkillID).ToList();
 
                         BtnFix.IsEnabled = false;
                     }
@@ -88,8 +84,34 @@ namespace CompetitionApp.Pages.ExpertPages
 
         private void BtnFix_Click(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show("Вы действительно хотите зафиксировать список? После фиксации больше нельзя добавлять, редактировать и удалять экспертов", "Внимание!", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-        }
+            if (result == MessageBoxResult.Yes)
+            {
+                var users = CompetitionDBEntities.GetContext().User.Where(p => p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID && p.UserRoleID == 2 && p.SkillID == CompetitionDBEntities.currentUser.SkillID);
+
+                try
+                {
+                    foreach (var user in users)
+                    {
+                        user.UserStatusID = 5;
+                    }
+
+                    CompetitionDBEntities.GetContext().SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                MessageBox.Show("Список экспертов зафиксирован!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                DGridUsers.ItemsSource = users.ToList();
+                BtnAdd.IsEnabled = false;
+                BtnDelete.IsEnabled = false;
+                BtnFix.IsEnabled = false;
+            }
+        }   
 
         private void DGridUsers_LoadingRow(object sender, DataGridRowEventArgs e)
         {

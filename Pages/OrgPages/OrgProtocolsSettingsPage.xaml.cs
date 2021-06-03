@@ -54,6 +54,15 @@ namespace CompetitionApp.Pages.OrgPages
             }
             else
             {
+                foreach (var protocol in selectedProtocols)
+                {
+                    if (protocol.ProtocolFinished.Count() > 0)
+                    {
+                        MessageBox.Show("Нельзя удалить протокол, использующий электронное подписание", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+
                 MessageBoxResult result = MessageBox.Show($"Вы действительно хотите удалить следующие протоколы ({selectedProtocols.Count})?", "Внимание!", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (result == MessageBoxResult.Yes)

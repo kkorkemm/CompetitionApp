@@ -18,6 +18,7 @@ namespace CompetitionApp.Base
         public Skill()
         {
             this.User = new HashSet<User>();
+            this.ProtocolFinished = new HashSet<ProtocolFinished>();
         }
     
         public string ID { get; set; }
@@ -26,5 +27,7 @@ namespace CompetitionApp.Base
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProtocolFinished> ProtocolFinished { get; set; }
     }
 }

@@ -35,7 +35,8 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Содержание: "/>
-                    <TextBlock Text="{Binding Content}"/>
+                    <TextBlock Text="{Binding Content}"
+                               Width="400"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">

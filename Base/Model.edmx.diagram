@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c7a05d2f33ac43b8b3ecacf4f2dcf1ed" Name="Diagram1">
+      <Diagram DiagramId="c7a05d2f33ac43b8b3ecacf4f2dcf1ed" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="CompetitionDBModel.Competition" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CompetitionDBModel.Day" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CompetitionDBModel.Expert" Width="1.5" PointX="5.25" PointY="16" IsExpanded="true" />
@@ -41,6 +41,9 @@
         <AssociationConnector Association="CompetitionDBModel.FK_User_UserRole" ManuallyRouted="false" />
         <AssociationConnector Association="CompetitionDBModel.FK_User_UserStatus" ManuallyRouted="false" />
         <AssociationConnector Association="CompetitionDBModel.ExpertAndRole" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CompetitionDBModel.ProtocolFinished" Width="1.5" PointX="10.5" PointY="16.875" />
+        <AssociationConnector Association="CompetitionDBModel.FK_ProtocolFinished_Protocols" />
+        <AssociationConnector Association="CompetitionDBModel.FK_ProtocolFinished_Skill" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

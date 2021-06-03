@@ -12,16 +12,15 @@ namespace CompetitionApp.Base
     using System;
     using System.Collections.Generic;
     
-    public partial class ProtocolAndUser
+    public partial class ProtocolFinished
     {
-        public string IsSigned => Signed ? "Подписано" : "Не подписано";
-        public int ID { get; set; }
+        public int FinishedID { get; set; }
         public int ProtocolID { get; set; }
-        public int UserID { get; set; }
-        public string Comment { get; set; }
-        public bool Signed { get; set; }
+        public string SkillID { get; set; }
+        public bool Finished { get; set; }
+        public bool Active { get; set; }
     
         public virtual Protocols Protocols { get; set; }
-        public virtual User User { get; set; }
+        public virtual Skill Skill { get; set; }
     }
 }

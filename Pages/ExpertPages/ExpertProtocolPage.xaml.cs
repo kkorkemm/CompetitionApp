@@ -28,6 +28,22 @@ namespace CompetitionApp.Pages.ExpertPages
 
         private void BtnReport_Click(object sender, RoutedEventArgs e)
         {
+            int count = CompetitionDBEntities.GetContext().Protocols.Where(p => p.Day.CompetitionID == CompetitionDBEntities.currentCompettion.ID).Count();
+
+            if (count == 0)
+            {
+                MessageBox.Show("Нет доступных протоколов", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            int countFinished = CompetitionDBEntities.GetContext().ProtocolFinished.Where(p => p.SkillID == CompetitionDBEntities.currentUser.SkillID).Count();
+
+            if (countFinished == 0)
+            {
+                MessageBox.Show("Нет активных протоколов", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             Navigation.SubFrame.Navigate(new ExpertProtocolReportPage());
         }
 

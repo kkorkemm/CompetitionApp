@@ -56,7 +56,11 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Дата протокола: "/>
-                    <TextBlock Text="{Binding Day.DayName}"/>
+                    <ComboBox Width="300"
+                              SelectedItem="{Binding Day}"
+                              DisplayMemberPath="DayName"
+                              x:Name="ComboDays"
+                              VerticalAlignment="Center"/>
                 </StackPanel>
                 
             </StackPanel>

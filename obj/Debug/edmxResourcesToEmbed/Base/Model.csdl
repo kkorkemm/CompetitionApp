@@ -108,14 +108,15 @@
     <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="UserRoleID" Type="Int16" Nullable="false" />
     <Property Name="DayID" Type="Int32" Nullable="false" />
-    <Property Name="Active" Type="Boolean" Nullable="false" />
-    <Property Name="Finished" Type="Boolean" Nullable="false" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Finished" Type="Boolean" />
     <NavigationProperty Name="Day" Relationship="Self.FK_Protocols_Day" FromRole="Protocols" ToRole="Day" />
     <NavigationProperty Name="ProtocolAndUser" Relationship="Self.FK_ProtocolAndUser_Protocols" FromRole="Protocols" ToRole="ProtocolAndUser" />
     <NavigationProperty Name="ProtocolExtraDateField" Relationship="Self.FK_ProtocolExtraDateField_Protocols" FromRole="Protocols" ToRole="ProtocolExtraDateField" />
     <NavigationProperty Name="ProtocolExtraTextField" Relationship="Self.FK_ProtocolExtraTextField_Protocols" FromRole="Protocols" ToRole="ProtocolExtraTextField" />
     <NavigationProperty Name="ProtocolExtraTimeStampField" Relationship="Self.FK_ProtocolExtraTimeStampField_Protocols" FromRole="Protocols" ToRole="ProtocolExtraTimeStampField" />
     <NavigationProperty Name="UserRole" Relationship="Self.FK_Protocols_UserRole" FromRole="Protocols" ToRole="UserRole" />
+    <NavigationProperty Name="ProtocolFinished" Relationship="CompetitionDBModel.FK_ProtocolFinished_Protocols" FromRole="Protocols" ToRole="ProtocolFinished" />
   </EntityType>
   <EntityType Name="Region">
     <Key>
@@ -144,6 +145,7 @@
     <Property Name="SkillName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_User_Skill" FromRole="Skill" ToRole="User" />
+    <NavigationProperty Name="ProtocolFinished" Relationship="CompetitionDBModel.FK_ProtocolFinished_Skill" FromRole="Skill" ToRole="ProtocolFinished" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -528,5 +530,50 @@
       <End Role="Expert" EntitySet="Expert" />
       <End Role="ExpertRole" EntitySet="ExpertRole" />
     </AssociationSet>
+    <EntitySet Name="ProtocolFinished" EntityType="CompetitionDBModel.ProtocolFinished" />
+    <AssociationSet Name="FK_ProtocolFinished_Protocols" Association="CompetitionDBModel.FK_ProtocolFinished_Protocols">
+      <End Role="Protocols" EntitySet="Protocols" />
+      <End Role="ProtocolFinished" EntitySet="ProtocolFinished" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProtocolFinished_Skill" Association="CompetitionDBModel.FK_ProtocolFinished_Skill">
+      <End Role="Skill" EntitySet="Skill" />
+      <End Role="ProtocolFinished" EntitySet="ProtocolFinished" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="ProtocolFinished">
+    <Key>
+      <PropertyRef Name="FinishedID" />
+    </Key>
+    <Property Name="FinishedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProtocolID" Type="Int32" Nullable="false" />
+    <Property Name="SkillID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Finished" Type="Boolean" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Protocols" Relationship="CompetitionDBModel.FK_ProtocolFinished_Protocols" FromRole="ProtocolFinished" ToRole="Protocols" />
+    <NavigationProperty Name="Skill" Relationship="CompetitionDBModel.FK_ProtocolFinished_Skill" FromRole="ProtocolFinished" ToRole="Skill" />
+  </EntityType>
+  <Association Name="FK_ProtocolFinished_Protocols">
+    <End Type="CompetitionDBModel.Protocols" Role="Protocols" Multiplicity="1" />
+    <End Type="CompetitionDBModel.ProtocolFinished" Role="ProtocolFinished" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Protocols">
+        <PropertyRef Name="ProtocolID" />
+      </Principal>
+      <Dependent Role="ProtocolFinished">
+        <PropertyRef Name="ProtocolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProtocolFinished_Skill">
+    <End Type="CompetitionDBModel.Skill" Role="Skill" Multiplicity="0..1" />
+    <End Type="CompetitionDBModel.ProtocolFinished" Role="ProtocolFinished" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skill">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProtocolFinished">
+        <PropertyRef Name="SkillID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -28,7 +28,7 @@
                            Width="300"/>
                 <ComboBox x:Name="ComboProtocols"
                           Width="300"
-                          DisplayMemberPath="ProtocolName"
+                          DisplayMemberPath="Protocols.ProtocolName"
                           SelectedIndex="0"
                           SelectionChanged="ComboProtocols_SelectionChanged"/>
             </StackPanel>
@@ -60,11 +60,20 @@
                         Grid.Row="3"
                         HorizontalAlignment="Center">
                 
-                <TextBlock Text="Итоговое подписание: "
-                           Width="300"/>
+                <TextBlock Text="PIN-код: "
+                           Width="100"
+                           VerticalAlignment="Center"/>
+                
                 <TextBox x:Name="TextPin"
-                         Text="PIN-код"
-                         Width="300"/>
+                         Width="100"
+                         Margin="0 0 5 0"
+                         VerticalAlignment="Center"/>
+                
+                <Button x:Name="BtnPin"
+                        Content="Использовать итоговое подписание"
+                        Style="{StaticResource BtnYellow}"
+                        Width="300"
+                        Click="BtnPin_Click"/>
             </StackPanel>
 
         </Grid>

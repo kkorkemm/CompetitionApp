@@ -58,13 +58,14 @@ namespace CompetitionApp
             if (CompetitionDBEntities.currentCompettion == null)
             {
                 MessageBox.Show("Чемпионатов не запланировано");
+                Close();
             }
 
             else
             {
                 if (CompetitionDBEntities.currentCompettion.Day.Count == 0)
                 {
-                    TimeSpan prevDays = CompetitionDBEntities.currentCompettion.BeginDate.AddDays(2) - DateTime.Now;
+                    TimeSpan prevDays = CompetitionDBEntities.currentCompettion.BeginDate.AddDays(1) - DateTime.Now;
 
                     for (int i = 0; i < prevDays.Days; i++)
                     {
@@ -84,14 +85,14 @@ namespace CompetitionApp
                 string file = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CompetitionApp\login.txt";
                 if (File.Exists(file))
                 {
-                    string login;
+                    int id;
                     using (StreamReader sr = new StreamReader(file, Encoding.Default))
                     {
-                        login = sr.ReadLine();
+                        id = Convert.ToInt32(sr.ReadLine());
                         sr.Close();
                     }
 
-                    var user = CompetitionDBEntities.GetContext().User.Where(p => p.Surname == login && p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID).FirstOrDefault();
+                    var user = CompetitionDBEntities.GetContext().User.Where(p => p.ID == id && p.CompetiotionID == CompetitionDBEntities.currentCompettion.ID).FirstOrDefault();
 
                     CompetitionDBEntities.currentUser = user;
 

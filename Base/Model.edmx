@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище CompetitionDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище CompetitionDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Competition">
           <Key>
             <PropertyRef Name="ID" />
@@ -96,6 +96,16 @@
           <Property Name="ExtraFieldName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Content" Type="timestamp" StoreGeneratedPattern="Computed" />
         </EntityType>
+        <EntityType Name="ProtocolFinished">
+          <Key>
+            <PropertyRef Name="FinishedID" />
+          </Key>
+          <Property Name="FinishedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProtocolID" Type="int" Nullable="false" />
+          <Property Name="SkillID" Type="varchar" MaxLength="5" />
+          <Property Name="Finished" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Protocols">
           <Key>
             <PropertyRef Name="ProtocolID" />
@@ -105,8 +115,8 @@
           <Property Name="Content" Type="nvarchar(max)" />
           <Property Name="UserRoleID" Type="smallint" Nullable="false" />
           <Property Name="DayID" Type="int" Nullable="false" />
-          <Property Name="Active" Type="bit" Nullable="false" />
-          <Property Name="Finished" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Finished" Type="bit" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
@@ -325,6 +335,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProtocolFinished_Protocols">
+          <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+          <End Role="ProtocolFinished" Type="Self.ProtocolFinished" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Protocols">
+              <PropertyRef Name="ProtocolID" />
+            </Principal>
+            <Dependent Role="ProtocolFinished">
+              <PropertyRef Name="ProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProtocolFinished_Skill">
+          <End Role="Skill" Type="Self.Skill" Multiplicity="0..1" />
+          <End Role="ProtocolFinished" Type="Self.ProtocolFinished" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProtocolFinished">
+              <PropertyRef Name="SkillID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Protocols_Day">
           <End Role="Day" Type="Self.Day" Multiplicity="1" />
           <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
@@ -444,6 +478,7 @@
           <EntitySet Name="ProtocolExtraDateField" EntityType="Self.ProtocolExtraDateField" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProtocolExtraTextField" EntityType="Self.ProtocolExtraTextField" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProtocolExtraTimeStampField" EntityType="Self.ProtocolExtraTimeStampField" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProtocolFinished" EntityType="Self.ProtocolFinished" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Protocols" EntityType="Self.Protocols" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RegionDistrict" EntityType="Self.RegionDistrict" Schema="dbo" store:Type="Tables" />
@@ -496,6 +531,14 @@
             <End Role="Protocols" EntitySet="Protocols" />
             <End Role="ProtocolExtraTimeStampField" EntitySet="ProtocolExtraTimeStampField" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProtocolFinished_Protocols" Association="Self.FK_ProtocolFinished_Protocols">
+            <End Role="Protocols" EntitySet="Protocols" />
+            <End Role="ProtocolFinished" EntitySet="ProtocolFinished" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProtocolFinished_Skill" Association="Self.FK_ProtocolFinished_Skill">
+            <End Role="Skill" EntitySet="Skill" />
+            <End Role="ProtocolFinished" EntitySet="ProtocolFinished" />
+          </AssociationSet>
           <AssociationSet Name="FK_Protocols_Day" Association="Self.FK_Protocols_Day">
             <End Role="Day" EntitySet="Day" />
             <End Role="Protocols" EntitySet="Protocols" />
@@ -533,8 +576,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CompetitionDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -646,14 +688,15 @@
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UserRoleID" Type="Int16" Nullable="false" />
           <Property Name="DayID" Type="Int32" Nullable="false" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
-          <Property Name="Finished" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Finished" Type="Boolean" />
           <NavigationProperty Name="Day" Relationship="Self.FK_Protocols_Day" FromRole="Protocols" ToRole="Day" />
           <NavigationProperty Name="ProtocolAndUser" Relationship="Self.FK_ProtocolAndUser_Protocols" FromRole="Protocols" ToRole="ProtocolAndUser" />
           <NavigationProperty Name="ProtocolExtraDateField" Relationship="Self.FK_ProtocolExtraDateField_Protocols" FromRole="Protocols" ToRole="ProtocolExtraDateField" />
           <NavigationProperty Name="ProtocolExtraTextField" Relationship="Self.FK_ProtocolExtraTextField_Protocols" FromRole="Protocols" ToRole="ProtocolExtraTextField" />
           <NavigationProperty Name="ProtocolExtraTimeStampField" Relationship="Self.FK_ProtocolExtraTimeStampField_Protocols" FromRole="Protocols" ToRole="ProtocolExtraTimeStampField" />
           <NavigationProperty Name="UserRole" Relationship="Self.FK_Protocols_UserRole" FromRole="Protocols" ToRole="UserRole" />
+          <NavigationProperty Name="ProtocolFinished" Relationship="CompetitionDBModel.FK_ProtocolFinished_Protocols" FromRole="Protocols" ToRole="ProtocolFinished" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
@@ -682,6 +725,7 @@
           <Property Name="SkillName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_User_Skill" FromRole="Skill" ToRole="User" />
+          <NavigationProperty Name="ProtocolFinished" Relationship="CompetitionDBModel.FK_ProtocolFinished_Skill" FromRole="Skill" ToRole="ProtocolFinished" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -1066,7 +1110,52 @@
             <End Role="Expert" EntitySet="Expert" />
             <End Role="ExpertRole" EntitySet="ExpertRole" />
           </AssociationSet>
+          <EntitySet Name="ProtocolFinished" EntityType="CompetitionDBModel.ProtocolFinished" />
+          <AssociationSet Name="FK_ProtocolFinished_Protocols" Association="CompetitionDBModel.FK_ProtocolFinished_Protocols">
+            <End Role="Protocols" EntitySet="Protocols" />
+            <End Role="ProtocolFinished" EntitySet="ProtocolFinished" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProtocolFinished_Skill" Association="CompetitionDBModel.FK_ProtocolFinished_Skill">
+            <End Role="Skill" EntitySet="Skill" />
+            <End Role="ProtocolFinished" EntitySet="ProtocolFinished" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="ProtocolFinished">
+          <Key>
+            <PropertyRef Name="FinishedID" />
+          </Key>
+          <Property Name="FinishedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProtocolID" Type="Int32" Nullable="false" />
+          <Property Name="SkillID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Finished" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Protocols" Relationship="CompetitionDBModel.FK_ProtocolFinished_Protocols" FromRole="ProtocolFinished" ToRole="Protocols" />
+          <NavigationProperty Name="Skill" Relationship="CompetitionDBModel.FK_ProtocolFinished_Skill" FromRole="ProtocolFinished" ToRole="Skill" />
+        </EntityType>
+        <Association Name="FK_ProtocolFinished_Protocols">
+          <End Type="CompetitionDBModel.Protocols" Role="Protocols" Multiplicity="1" />
+          <End Type="CompetitionDBModel.ProtocolFinished" Role="ProtocolFinished" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Protocols">
+              <PropertyRef Name="ProtocolID" />
+            </Principal>
+            <Dependent Role="ProtocolFinished">
+              <PropertyRef Name="ProtocolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProtocolFinished_Skill">
+          <End Type="CompetitionDBModel.Skill" Role="Skill" Multiplicity="0..1" />
+          <End Type="CompetitionDBModel.ProtocolFinished" Role="ProtocolFinished" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProtocolFinished">
+              <PropertyRef Name="SkillID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1264,6 +1353,17 @@
               <ScalarProperty Name="ID" ColumnName="ExpertRoleID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="ProtocolFinished">
+            <EntityTypeMapping TypeName="CompetitionDBModel.ProtocolFinished">
+              <MappingFragment StoreEntitySet="ProtocolFinished">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Finished" ColumnName="Finished" />
+                <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+                <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
+                <ScalarProperty Name="FinishedID" ColumnName="FinishedID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

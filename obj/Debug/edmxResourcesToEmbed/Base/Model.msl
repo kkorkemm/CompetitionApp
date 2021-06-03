@@ -192,5 +192,16 @@
         <ScalarProperty Name="ID" ColumnName="ExpertRoleID" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="ProtocolFinished">
+      <EntityTypeMapping TypeName="CompetitionDBModel.ProtocolFinished">
+        <MappingFragment StoreEntitySet="ProtocolFinished">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Finished" ColumnName="Finished" />
+          <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+          <ScalarProperty Name="ProtocolID" ColumnName="ProtocolID" />
+          <ScalarProperty Name="FinishedID" ColumnName="FinishedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

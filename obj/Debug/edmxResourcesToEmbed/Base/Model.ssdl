@@ -91,6 +91,16 @@
     <Property Name="ExtraFieldName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Content" Type="timestamp" StoreGeneratedPattern="Computed" />
   </EntityType>
+  <EntityType Name="ProtocolFinished">
+    <Key>
+      <PropertyRef Name="FinishedID" />
+    </Key>
+    <Property Name="FinishedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProtocolID" Type="int" Nullable="false" />
+    <Property Name="SkillID" Type="varchar" MaxLength="5" />
+    <Property Name="Finished" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="Protocols">
     <Key>
       <PropertyRef Name="ProtocolID" />
@@ -100,8 +110,8 @@
     <Property Name="Content" Type="nvarchar(max)" />
     <Property Name="UserRoleID" Type="smallint" Nullable="false" />
     <Property Name="DayID" Type="int" Nullable="false" />
-    <Property Name="Active" Type="bit" Nullable="false" />
-    <Property Name="Finished" Type="bit" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Finished" Type="bit" />
   </EntityType>
   <EntityType Name="Region">
     <Key>
@@ -320,6 +330,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ProtocolFinished_Protocols">
+    <End Role="Protocols" Type="Self.Protocols" Multiplicity="1" />
+    <End Role="ProtocolFinished" Type="Self.ProtocolFinished" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Protocols">
+        <PropertyRef Name="ProtocolID" />
+      </Principal>
+      <Dependent Role="ProtocolFinished">
+        <PropertyRef Name="ProtocolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProtocolFinished_Skill">
+    <End Role="Skill" Type="Self.Skill" Multiplicity="0..1" />
+    <End Role="ProtocolFinished" Type="Self.ProtocolFinished" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skill">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProtocolFinished">
+        <PropertyRef Name="SkillID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Protocols_Day">
     <End Role="Day" Type="Self.Day" Multiplicity="1" />
     <End Role="Protocols" Type="Self.Protocols" Multiplicity="*" />
@@ -439,6 +473,7 @@
     <EntitySet Name="ProtocolExtraDateField" EntityType="Self.ProtocolExtraDateField" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProtocolExtraTextField" EntityType="Self.ProtocolExtraTextField" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProtocolExtraTimeStampField" EntityType="Self.ProtocolExtraTimeStampField" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProtocolFinished" EntityType="Self.ProtocolFinished" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Protocols" EntityType="Self.Protocols" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RegionDistrict" EntityType="Self.RegionDistrict" Schema="dbo" store:Type="Tables" />
@@ -490,6 +525,14 @@
     <AssociationSet Name="FK_ProtocolExtraTimeStampField_Protocols" Association="Self.FK_ProtocolExtraTimeStampField_Protocols">
       <End Role="Protocols" EntitySet="Protocols" />
       <End Role="ProtocolExtraTimeStampField" EntitySet="ProtocolExtraTimeStampField" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProtocolFinished_Protocols" Association="Self.FK_ProtocolFinished_Protocols">
+      <End Role="Protocols" EntitySet="Protocols" />
+      <End Role="ProtocolFinished" EntitySet="ProtocolFinished" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProtocolFinished_Skill" Association="Self.FK_ProtocolFinished_Skill">
+      <End Role="Skill" EntitySet="Skill" />
+      <End Role="ProtocolFinished" EntitySet="ProtocolFinished" />
     </AssociationSet>
     <AssociationSet Name="FK_Protocols_Day" Association="Self.FK_Protocols_Day">
       <End Role="Day" EntitySet="Day" />
